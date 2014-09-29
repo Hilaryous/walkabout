@@ -1,0 +1,17 @@
+# Logfile created on 2014-09-29 14:33:17 -0600 by logger.rb/44203
+W, [2014-09-29T14:33:17.632670 #1608]  WARN -- : [SKYLIGHT] [0.3.20] Running Skylight in development mode. No data will be reported until you deploy your app.
+(To disable this message, set `alert_logger_file` in your config.)
+W, [2014-09-29T14:34:23.570314 #1628]  WARN -- : [SKYLIGHT] [0.3.20] Running Skylight in development mode. No data will be reported until you deploy your app.
+(To disable this message, set `alert_logger_file` in your config.)
+W, [2014-09-29T14:34:42.043236 #1634]  WARN -- : [SKYLIGHT] [0.3.20] Running Skylight in development mode. No data will be reported until you deploy your app.
+(To disable this message, set `alert_logger_file` in your config.)
+W, [2014-09-29T14:36:25.225007 #1648]  WARN -- : [SKYLIGHT] [0.3.20] Running Skylight in development mode. No data will be reported until you deploy your app.
+(To disable this message, set `alert_logger_file` in your config.)
+W, [2014-09-29T14:36:37.009757 #1651]  WARN -- : [SKYLIGHT] [0.3.20] Running Skylight in development mode. No data will be reported until you deploy your app.
+(To disable this message, set `alert_logger_file` in your config.)
+W, [2014-09-29T14:37:51.112936 #1665]  WARN -- : [SKYLIGHT] [0.3.20] Running Skylight in development mode. No data will be reported until you deploy your app.
+(To disable this message, set `alert_logger_file` in your config.)
+W, [2014-09-29T14:40:20.638687 #1692]  WARN -- : [SKYLIGHT] [0.3.20] Running Skylight in development mode. No data will be reported until you deploy your app.
+(To disable this message, set `alert_logger_file` in your config.)
+W, [2014-09-29T14:40:27.465615 #1699]  WARN -- : [SKYLIGHT] [0.3.20] Running Skylight in development mode. No data will be reported until you deploy your app.
+(To disable this message, set `alert_logger_file` in your config.)
