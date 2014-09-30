@@ -13,6 +13,7 @@ gem 'pg'
 gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem "codeclimate-test-reporter", group: :test, require: nil
+gem 'postgres-copy'
 
 group :production do
   gem "skylight"
