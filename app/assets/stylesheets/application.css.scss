@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.navbar{
+  margin-bottom: 0px;
+}
+
 .homepage-container {
   background-image: url(http://www.bwbacon.com/wp-content/uploads/2014/06/denver-skyline.jpg);
   background-size: cover;
