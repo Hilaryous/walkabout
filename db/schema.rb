@@ -11,6 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20141001211714) do
+
+  create_table "locations", force: true do |t|
+    t.float   "latitude"
+    t.float   "longitude"
+    t.string  "street"
+    t.string  "city"
+    t.string  "state"
+    t.string  "zipcode"
+    t.string  "country"
+    t.integer "sight_id"
+  end
+
+  create_table "sights", force: true do |t|
+    t.string   "name"
+    t.string   "kind"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
 
 end

@@ -16,6 +16,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem "codeclimate-test-reporter", group: :test, require: nil
 gem 'postgres-copy'
+gem 'geocoder'
+gem "paperclip", "~> 4.2"
 
 group :production do
   gem "skylight"

@@ -1,10 +1,10 @@
-# I1: No Walking Plans, Just Locations
+# I1: No Walking Plans, Just Sights
 ### Needs: ###
-  * Locations are pulled from CSV to my DB
-  * The Locations can be selected but no walk is generated yet
+  * Sights are pulled from CSV to my DB
+  * The Sights can be selected but no walk is generated yet
 
 ### Wants: ###
-  * Display all the locations
+  * Display all the sights
   * Google Maps api stuff is done
 
 ### Emergency: ###
@@ -14,7 +14,7 @@
 ### Needs: ###
   * OAuth
   * Google Maps api stuff is done
-  * Locations are selected
+  * Sights are selected
   * Generate a walk
   * Display the walk to the user
 
@@ -27,14 +27,14 @@
 # I3: Walking Plans from One Spot
 ### Needs: ###
   * User can pick a distance
-  * Locations are selected
+  * Sights are selected
   * Generate a walk
   * Display the walk to the user
 
 ### Wants: ###
   * Mobile/Web
   * Filtering Landmarks
-  * User can upload photos of locations
+  * User can upload photos of sights
 
 ### Emergency: ###
   * User can only pick from a certain number of distances
@@ -43,8 +43,8 @@
 # I4: Walking Plans Complete
 ### Needs: ###
   * User can pick a distance
-  * User can pick a start location
-  * Locations are selected
+  * User can pick a start sight
+  * Sights are selected
   * Generate a walk
   * Display the walk to the user
 

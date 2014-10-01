@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Visiting the homepage' do
 	before(:each) do
-		visit "/"
+		visit root_path
 	end
 	it "shouldn't fail" do
 		expect(page.status_code).to eq 200
@@ -12,7 +12,7 @@ describe 'Visiting the homepage' do
 		expect(page).to have_link("Walkabout")
 	end
 
-	it "should have a link to see all the locations" do
+	it "should have a link to see all the sights" do
 		expect(page).to have_link("Sightsee")
 	end
 
@@ -29,7 +29,7 @@ describe 'Visiting the homepage' do
 	end
 
 	it 'should have a link to the source code' do
-		expect(page).to have_link("See Source Code Here")
+		expect(page).to have_link("Hilaryous")
 	end
 
 	it 'should have a link to contact us' do
