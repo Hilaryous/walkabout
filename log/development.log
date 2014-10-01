@@ -8966,3 +8966,29 @@ Migrating to AddAttachmentImageToSights (20141001211714)
   [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141001211714')[0m
   [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141001194449')
   [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141001200547')[0m
+  [1m[36m (256.4ms)[0m  [1mCREATE DATABASE "walkabout_development" ENCODING = 'unicode'[0m
+  [1m[35m (1.9ms)[0m  CREATE DATABASE "walkabout_test" ENCODING = 'unicode'
+PG::DuplicateDatabase: ERROR:  database "walkabout_test" already exists
+: CREATE DATABASE "walkabout_test" ENCODING = 'unicode'
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSightsTable (20141001194449)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "sights" ("id" serial primary key, "name" character varying(255), "kind" character varying(255)) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141001194449"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateLocations (20141001200547)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "locations" ("id" serial primary key, "latitude" float, "longitude" float, "street" character varying(255), "city" character varying(255), "state" character varying(255), "zipcode" character varying(255), "country" character varying(255), "sight_id" integer) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141001200547"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddAttachmentImageToSights (20141001211714)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "sights" ADD COLUMN "image_file_name" character varying(255)[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "sights" ADD COLUMN "image_content_type" character varying(255)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "sights" ADD COLUMN "image_file_size" integer[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "sights" ADD COLUMN "image_updated_at" timestamp
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141001211714"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m

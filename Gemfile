@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.6'
-gem 'sqlite3'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '~> 4.0.3'
 gem 'autoprefixer-rails'
@@ -18,6 +17,7 @@ gem "codeclimate-test-reporter", group: :test, require: nil
 gem 'postgres-copy'
 gem 'geocoder'
 gem "paperclip", "~> 4.2"
+gem 'postgres-copy'
 
 group :production do
   gem "skylight"
