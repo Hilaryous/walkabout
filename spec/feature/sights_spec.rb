@@ -28,7 +28,7 @@ describe 'sight' do
       expect(page).to have_content @sight.location.address
     end
 
-    it 'should have an image of the sight' do
+    xit 'should have an image of the sight' do
       expect(page).to have_content @sight.image
     end
   end
