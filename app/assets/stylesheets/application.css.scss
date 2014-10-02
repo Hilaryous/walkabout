@@ -35,3 +35,113 @@ img {
   top:300px;
   left: 43%;
 }
+
+.sight-container{
+  padding-top: 20px;
+}
+.block-grid{
+  zoom: 1;
+  display: block;
+  padding: 0px;
+}
+
+.block-grid>li{
+  width: 50%;
+  padding: 0 10px 10px;
+  display: block;
+  float: left;
+  height: auto;
+}
+
+figure{
+  margin: 0px;
+}
+
+.sight-card>a{
+  background: #f2f2f2;
+  transition: box-shadow 100ms linear, top 100ms linear;
+}
+
+.sight-card {
+  a {
+    position: relative;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  img{
+    height: 205px;
+    max-width: 100%;
+    width: 100%;
+    display: block;
+  }
+
+  figcaption{
+    position: relative;
+  }
+
+  p{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .sight-name{
+    min-height: 43px;
+    padding: 12px 16px 0;
+    margin: 0;
+    font-size: 16px;
+    line-height: 22px;
+    color: #333;
+    height: 60px;
+  }
+
+  .sight-kind{
+    color: #888;
+    font-size: 14px;
+    min-height: 23px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 16px;
+    display: block;
+    margin: 0;
+  }
+
+  .sight-location{
+    padding: 0px 16px;
+    display: block;
+    margin: 0;
+    color: #888;
+    font-size: 14px;
+    min-height: 23px;
+  }
+}
+
+h4.title{
+  color: #444;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  width: 100%;
+  border-bottom: 1px solid #d8d8d8;
+  padding-bottom: 5px;
+}
+
+.types{
+  font-size: 13px;
+  list-style: none outside none;
+  padding: 0;
+  margin-top: 10px;
+  margin-right: 0;
+  margin-bottom: 0px;
+}
+
+.types li{
+  position: realtive;
+  padding-bottom: 10px;
+  line-height: 16px;
+}
