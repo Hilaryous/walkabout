@@ -12,6 +12,6 @@ class Location < ActiveRecord::Base
   after_validation :geocode, :reverse_geocode
 
   def address
-    [street, city, state, zipcode, country].join(", ")
+    [street, city, state].join(", ")
   end
 end

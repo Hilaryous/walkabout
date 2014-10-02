@@ -1,6 +1,32 @@
-<% @sights.each do |sight| %>
-  <% sight.image %>
-  <%= sight.name %>
-  <%= sight.kind %>
-  <%= sight.location.address %>
-<% end %>
+<div class="container-fluid sight-container">
+  <div class="row">
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+      <h4 class="title">Types</h4>
+      <ul class="types">
+        <%@sight_kinds.each do |kind| %>
+          <li>
+            <%= kind %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+      <ul class="row block-grid">
+        <% @sights.each do |sight| %>
+          <li class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <figure  class="sight-card">
+              <a href="#">
+                <%= image_tag sight.image.url(:thumb) %>
+                <figcaption>
+                  <p class="sight-name"><%= sight.name %></p>
+                  <p class="sight-kind"><%= sight.kind %></p>
+                  <p class="sight-location"><span class="glyphicon glyphicon-map-marker"></span><%= sight.location.address %></p>
+                </figcaption>
+              </a>
+            </figure>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
