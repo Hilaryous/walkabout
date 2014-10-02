@@ -17,7 +17,6 @@ gem "codeclimate-test-reporter", group: :test, require: nil
 gem 'postgres-copy'
 gem 'geocoder'
 gem "paperclip", "~> 4.2"
-gem 'postgres-copy'
 
 group :production do
   gem "skylight"

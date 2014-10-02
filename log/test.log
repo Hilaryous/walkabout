@@ -7484,3 +7484,274 @@ Processing by SightsController#index as HTML
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.3ms)
   [1m[36m (1.9ms)[0m  [1mrollback transaction[0m
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (11.8ms)[0m  CREATE TABLE "locations" ("id" serial primary key, "latitude" float, "longitude" float, "street" character varying(255), "city" character varying(255), "state" character varying(255), "zipcode" character varying(255), "country" character varying(255), "sight_id" integer) 
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "sights" ("id" serial primary key, "name" character varying(255), "kind" character varying(255), "image_file_name" character varying(255), "image_content_type" character varying(255), "image_file_size" integer, "image_updated_at" timestamp) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141001211714')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141001194449')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141001200547')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:47:56 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_navbar.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 42ms (Views: 34.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:47:56 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:47:56 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:47:56 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:47:56 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:47:56 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:47:56 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:47:56 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.9ms)[0m  [1mINSERT INTO "locations" ("city", "country", "latitude", "longitude", "state", "street", "zipcode") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Denver"], ["country", "US"], ["latitude", 39.74745784], ["longitude", -104.95018343], ["state", "Colorado"], ["street", "2300 Steele Street"], ["zipcode", "80205"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "locations" ("city", "country", "latitude", "longitude", "state", "street", "zipcode") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["city", "Denver"], ["country", "US"], ["latitude", 39.74745784], ["longitude", -104.95018343], ["state", "Colorado"], ["street", "2300 Steele Street"], ["zipcode", "80205"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "locations" ("city", "country", "latitude", "longitude", "state", "street", "zipcode") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Denver"], ["country", "US"], ["latitude", 39.74745784], ["longitude", -104.95018343], ["state", "Colorado"], ["street", "2300 Steele Street"], ["zipcode", "80205"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "locations" ("city", "country", "latitude", "longitude", "state", "street", "zipcode") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["city", "Denver"], ["country", "US"], ["latitude", 39.74745784], ["longitude", -104.95018343], ["state", "Colorado"], ["street", "2300 Steele Street"], ["zipcode", "80205"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "locations" ("city", "country", "latitude", "longitude", "state", "street", "zipcode") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Denver"], ["country", "US"], ["latitude", 39.74745784], ["longitude", -104.95018343], ["state", "Colorado"], ["street", "2300 Steele Street"], ["zipcode", "80205"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "locations" ("city", "country", "latitude", "longitude", "state", "street", "zipcode") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["city", "Denver"], ["country", "US"], ["latitude", 39.74745784], ["longitude", -104.95018343], ["state", "Colorado"], ["street", "2300 Steele Street"], ["zipcode", "80205"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:48:46 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 47ms (Views: 37.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:48:46 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:48:46 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:48:46 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_navbar.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:48:46 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_navbar.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:48:46 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navbar.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:48:46 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/" for 127.0.0.1 at 2014-10-01 15:48:46 -0600
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navbar.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "locations" ("city", "country", "latitude", "longitude", "state", "street", "zipcode") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["city", "Denver"], ["country", "US"], ["latitude", 39.74745784], ["longitude", -104.95018343], ["state", "Colorado"], ["street", "2300 Steele Street"], ["zipcode", "80205"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "sights" ("kind", "name") VALUES ($1, $2) RETURNING "id"[0m  [["kind", "park"], ["name", "City Park"]]
+  [1m[35mSQL (0.5ms)[0m  UPDATE "locations" SET "latitude" = $1, "longitude" = $2, "sight_id" = $3 WHERE "locations"."id" = 7  [["latitude", 39.7502343], ["longitude", -104.9496601], ["sight_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/sights" for 127.0.0.1 at 2014-10-01 15:48:47 -0600
+Processing by SightsController#index as HTML
+  [1m[35mSight Load (0.4ms)[0m  SELECT "sights".* FROM "sights"
+  [1m[36mLocation Load (2.0ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."sight_id" = $1 LIMIT 1[0m  [["sight_id", 1]]
+  Rendered sights/index.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_navbar.html.erb (0.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 14ms (Views: 10.6ms | ActiveRecord: 2.3ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "locations" ("city", "country", "latitude", "longitude", "state", "street", "zipcode") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Denver"], ["country", "US"], ["latitude", 39.74745784], ["longitude", -104.95018343], ["state", "Colorado"], ["street", "2300 Steele Street"], ["zipcode", "80205"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sights" ("kind", "name") VALUES ($1, $2) RETURNING "id"  [["kind", "park"], ["name", "City Park"]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "locations" SET "latitude" = $1, "longitude" = $2, "sight_id" = $3 WHERE "locations"."id" = 8[0m  [["latitude", 39.7502343], ["longitude", -104.9496601], ["sight_id", 2]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/sights" for 127.0.0.1 at 2014-10-01 15:48:48 -0600
+Processing by SightsController#index as HTML
+  [1m[36mSight Load (0.3ms)[0m  [1mSELECT "sights".* FROM "sights"[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."sight_id" = $1 LIMIT 1  [["sight_id", 2]]
+  Rendered sights/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "locations" ("city", "country", "latitude", "longitude", "state", "street", "zipcode") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["city", "Denver"], ["country", "US"], ["latitude", 39.74745784], ["longitude", -104.95018343], ["state", "Colorado"], ["street", "2300 Steele Street"], ["zipcode", "80205"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "sights" ("kind", "name") VALUES ($1, $2) RETURNING "id"[0m  [["kind", "park"], ["name", "City Park"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "locations" SET "latitude" = $1, "longitude" = $2, "sight_id" = $3 WHERE "locations"."id" = 9  [["latitude", 39.7502343], ["longitude", -104.9496601], ["sight_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/sights" for 127.0.0.1 at 2014-10-01 15:48:48 -0600
+Processing by SightsController#index as HTML
+  [1m[35mSight Load (0.2ms)[0m  SELECT "sights".* FROM "sights"
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."sight_id" = $1 LIMIT 1[0m  [["sight_id", 3]]
+  Rendered sights/index.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "locations" ("city", "country", "latitude", "longitude", "state", "street", "zipcode") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Denver"], ["country", "US"], ["latitude", 39.74745784], ["longitude", -104.95018343], ["state", "Colorado"], ["street", "2300 Steele Street"], ["zipcode", "80205"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "sights" ("kind", "name") VALUES ($1, $2) RETURNING "id"  [["kind", "park"], ["name", "City Park"]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "locations" SET "latitude" = $1, "longitude" = $2, "sight_id" = $3 WHERE "locations"."id" = 10[0m  [["latitude", 39.7502343], ["longitude", -104.9496601], ["sight_id", 4]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/sights" for 127.0.0.1 at 2014-10-01 15:48:49 -0600
+Processing by SightsController#index as HTML
+  [1m[36mSight Load (0.3ms)[0m  [1mSELECT "sights".* FROM "sights"[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."sight_id" = $1 LIMIT 1  [["sight_id", 4]]
+  Rendered sights/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "locations" ("latitude", "longitude") VALUES ($1, $2) RETURNING "id"  [["latitude", 39.74745784], ["longitude", -104.95018343]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "sights" ("kind", "name") VALUES ($1, $2) RETURNING "id"[0m  [["kind", "park"], ["name", "City Park"]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "locations" SET "city" = $1, "country" = $2, "sight_id" = $3, "state" = $4, "street" = $5, "zipcode" = $6 WHERE "locations"."id" = 11  [["city", "Denver"], ["country", "US"], ["sight_id", 5], ["state", "Colorado"], ["street", "2300 Steele Street"], ["zipcode", "80205"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/sights" for 127.0.0.1 at 2014-10-01 15:48:49 -0600
+Processing by SightsController#index as HTML
+  [1m[35mSight Load (0.3ms)[0m  SELECT "sights".* FROM "sights"
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT  "locations".* FROM "locations"  WHERE "locations"."sight_id" = $1 LIMIT 1[0m  [["sight_id", 5]]
+  Rendered sights/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "locations" ("city", "country", "latitude", "longitude", "state", "street", "zipcode") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["city", "Denver"], ["country", "US"], ["latitude", 39.74745784], ["longitude", -104.95018343], ["state", "Colorado"], ["street", "2300 Steele Street"], ["zipcode", "80205"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "sights" ("kind", "name") VALUES ($1, $2) RETURNING "id"  [["kind", "park"], ["name", "City Park"]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "locations" SET "latitude" = $1, "longitude" = $2, "sight_id" = $3 WHERE "locations"."id" = 12[0m  [["latitude", 39.7502343], ["longitude", -104.9496601], ["sight_id", 6]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/sights" for 127.0.0.1 at 2014-10-01 15:48:50 -0600
+Processing by SightsController#index as HTML
+  [1m[36mSight Load (0.5ms)[0m  [1mSELECT "sights".* FROM "sights"[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT  "locations".* FROM "locations"  WHERE "locations"."sight_id" = $1 LIMIT 1  [["sight_id", 6]]
+  Rendered sights/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navbar.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m

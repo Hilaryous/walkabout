@@ -237,11 +237,11 @@
         1,
         1,
         12,
-        10,
-        10,
-        10,
-        10,
-        10,
+        11,
+        11,
+        11,
+        11,
+        11,
         null,
         null,
         1,
@@ -256,6 +256,7 @@
         1,
         1,
         1,
+        1,
         null
       ],
       "/Users/hildenton/Desktop/walkabout/app/controllers/sights_controller.rb": [
@@ -266,6 +267,6 @@
         null
       ]
     },
-    "timestamp": 1412198377
+    "timestamp": 1412200130
   }
 }

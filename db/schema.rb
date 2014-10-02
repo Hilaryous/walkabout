@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20141001211714) do
   create_table "sights", force: true do |t|
     t.string   "name"
     t.string   "kind"
+    t.string   "established_date"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
