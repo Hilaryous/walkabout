@@ -12,7 +12,7 @@ describe 'walk' do
       expect(page.status_code).to eq 200
     end
 
-    xit 'should have an option to name the walk' do
+    it 'should have an option to name the walk' do
       find_field("Name")
     end
 

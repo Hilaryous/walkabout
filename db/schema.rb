@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001211714) do
+ActiveRecord::Schema.define(version: 20141002183321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20141001211714) do
     t.string  "zipcode"
     t.string  "country"
     t.integer "sight_id"
+    t.integer "loc_type"
   end
 
   create_table "sights", force: true do |t|
@@ -35,6 +36,16 @@ ActiveRecord::Schema.define(version: 20141001211714) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "walk_locations", force: true do |t|
+    t.integer "walk_id"
+    t.integer "location_id"
+  end
+
+  create_table "walks", force: true do |t|
+    t.string  "name"
+    t.integer "distance"
   end
 
 end
