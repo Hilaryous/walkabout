@@ -13,7 +13,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'pg'
 gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
-gem "codeclimate-test-reporter", group: :test, require: nil
 gem 'postgres-copy'
 gem 'geocoder'
 gem 'gmaps4rails'
@@ -45,6 +44,8 @@ group :test do
   gem 'poltergeist'
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.0'
+  gem "codeclimate-test-reporter", require: nil
+
 end
 
 # Use ActiveModel has_secure_password
