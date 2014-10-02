@@ -54,7 +54,7 @@ describe 'walk' do
     end
 
     context 'after a walk is created' do
-      xit 'is directed to the walk show page' do
+      xit 'is directed to the walk show page' do	
         fill_in "walk[name]", with: "Test Walk"
         fill_in "walk[distance]", with: 5
         click_button("Take A Walk")

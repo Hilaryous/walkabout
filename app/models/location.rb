@@ -12,9 +12,14 @@ class Location < ActiveRecord::Base
       obj.country = geo.country_code
     end
   end
-  after_validation :geocode, :reverse_geocode
+  after_validation :geocode, :reverse_geocode, :if => lambda{ |obj| obj.address_changed? }
 
   def address
-    [street, city, state].join(", ")
+    [street, city, state].compact.join(", ")
+  end
+
+  def address_changed?
+    attrs = %w(street city state)
+    attrs.any?{|a| send "#{a}_changed?"}
   end
 end
