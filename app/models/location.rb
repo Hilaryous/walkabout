@@ -1,4 +1,7 @@
 class Location < ActiveRecord::Base
+  has_many :walk_locations
+  has_many :walks, through: :walk_locations
+
   geocoded_by :address
   reverse_geocoded_by :latitude, :longitude do |obj,results|
     if geo = results.first

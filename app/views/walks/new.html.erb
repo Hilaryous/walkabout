@@ -1,4 +1,9 @@
 <%= form_for @walk do |f|%>
   <%= f.label :name %>
   <%= f.text_field :name %>
+  <%= f.label :distance %>
+  <%= f.text_field :distance %>
+  <%= f.label :walk_locations, "Start Point" %>
+  <%= f.text_field :walk_locations %>
+  <%= f.submit "Take A Walk" %>
 <% end %>

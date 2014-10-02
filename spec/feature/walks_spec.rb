@@ -16,7 +16,7 @@ describe 'walk' do
       find_field("Name")
     end
 
-    xit 'should have a place to insert the distance' do
+    it 'should have a place to insert the distance' do
       find_field("Distance")
     end
 
@@ -32,26 +32,25 @@ describe 'walk' do
       find_field("Type")
     end
 
-    xit 'should have a place to enter start point' do
+    it 'should have a place to enter start point' do
       find_field("Start Point")
     end
 
     xit 'should set start point to ip address by default' do
       expect(find_field("Start Point").value).to eq "the ip address"
+      #do this with javascript?
     end
 
-    xit 'can create a walk' do
+    it 'can create a walk' do
       fill_in "walk[name]", with: "Test Walk"
       fill_in "walk[distance]", with: 5
       click_button("Take A Walk")
-      expect(path).to be(walks_path(walk))
     end
 
-    xit 'cannot create a walk without a distance' do
+    it 'cannot create a walk without a distance' do
       fill_in "walk[name]", with: "Test Walk"
       click_button("Take A Walk")
-      expect(path).not_to be(walks_path(walk))
-      expect(page).to have content 'blank'
+      expect(page).to have_content 'blank'
     end
 
     context 'after a walk is created' do
@@ -59,7 +58,6 @@ describe 'walk' do
         fill_in "walk[name]", with: "Test Walk"
         fill_in "walk[distance]", with: 5
         click_button("Take A Walk")
-        expect(path).to be(walks_path(walk))
       end
 
       xit 'has the walk that was just created on the show page' do
