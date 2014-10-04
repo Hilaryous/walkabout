@@ -6,14 +6,8 @@ class WalksController < ApplicationController
   def create
     @walk = Walk.new(walk_params)
     if @walk.save
-      types = ["start_location", "finish_location"]
-      types.each_with_index do |type, i|
-        if process_position(type) == nil
-          process_ip(lookup_ip_location)
-        end
-        location = type.partition("_")[0]
-        create_location(location)
-      end
+      process_and_create_locations
+
       redirect_to walk_path(@walk)
     else
       flash[:error] = "Distance field cannot be blank"
@@ -49,6 +43,17 @@ class WalksController < ApplicationController
     def process_ip(ip_location)
       @lat = lookup_ip_location.latitude
       @lng = lookup_ip_location.longitude
+    end
+
+    def process_and_create_locations
+      types = ["start_location", "finish_location"]
+      types.each_with_index do |type, i|
+        if process_position(type) == nil
+          process_ip(lookup_ip_location)
+        end
+        location = type.partition("_")[0]
+        create_location(location)
+      end
     end
 
     def create_location(type)
