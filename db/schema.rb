@@ -25,7 +25,8 @@ ActiveRecord::Schema.define(version: 20141002183321) do
     t.string  "zipcode"
     t.string  "country"
     t.integer "sight_id"
-    t.integer "loc_type"
+    t.integer "walk_id"
+    t.string  "type"
   end
 
   create_table "sights", force: true do |t|

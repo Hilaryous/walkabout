@@ -5,17 +5,19 @@ class Location < ActiveRecord::Base
   geocoded_by :address
   reverse_geocoded_by :latitude, :longitude do |obj,results|
     if geo = results.first
-      obj.street  = geo.street_address
+      obj.street  = geo.street
       obj.city    = geo.city
       obj.state   = geo.state
       obj.zipcode = geo.postal_code
       obj.country = geo.country_code
     end
   end
-  after_validation :geocode, :reverse_geocode, :if => lambda{ |obj| obj.address_changed? }
+
+  before_validation :geocode, :if => lambda{ |obj| obj.address_changed? }
+  before_validation :reverse_geocode
 
   def address
-    [street, city, state].compact.join(", ")
+    [street, city, state].join(", ")
   end
 
   def address_changed?
