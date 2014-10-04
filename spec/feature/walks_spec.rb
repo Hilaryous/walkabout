@@ -20,7 +20,7 @@ describe 'walk' do
       find_field("Distance")
     end
 
-    xit 'should have defualt sights which are all the sights within the distance radius of start location' do
+    xit 'should have default sights which are all the sights within the distance radius of start location' do
       #not sure how to test this yet
     end
 
@@ -36,15 +36,64 @@ describe 'walk' do
       find_field("Start Point")
     end
 
-    xit 'should set start point to ip address by default' do
-      expect(find_field("Start Point").value).to eq "the ip address"
-      #do this with javascript?
-    end
-
     it 'can create a walk' do
       fill_in "walk[name]", with: "Test Walk"
       fill_in "walk[distance]", with: 5
       click_button("Take A Walk")
+    end
+
+    it 'can create a walk without a start point' do
+      fill_in "walk[name]", with: "Test Walk"
+      fill_in "walk[distance]", with: 5
+      fill_in "walk[finish_location]", with: "39.7494680, -105.0000480"
+      click_button("Take A Walk")
+    end
+
+    it 'can create a walk without an end point' do
+      fill_in "walk[name]", with: "Test Walk"
+      fill_in "walk[distance]", with: 5
+      fill_in "walk[start_location]", with: "39.7494680, -105.0000480"
+      click_button("Take A Walk")
+    end
+
+    it 'can create a walk without a start nor an end point' do
+      fill_in "walk[name]", with: "Test Walk"
+      fill_in "walk[distance]", with: 5
+      click_button("Take A Walk")
+    end
+
+    it 'will have a start and an end point of current location by default' do
+      fill_in "walk[name]", with: "Test Walk"
+      fill_in "walk[distance]", with: 5
+      click_button("Take A Walk")
+      within("div.start_location") do
+        expect(page).to have_content "2414 1st Ave, Seattle, WA" #this is a hardcoded test ip
+      end
+      within("div.finish_location") do
+        expect(page).to have_content "2414 1st Ave, Seattle, WA" #this is a hardcoded test ip
+      end
+    end
+
+    it 'will have an end location that is the same as the start location by defualt' do
+      fill_in "walk[name]", with: "Test Walk"
+      fill_in "walk[distance]", with: 5
+      click_button("Take A Walk")
+      expect(find(:css, "div.finish_location").text).to eq(find(:css, "div.finish_location").text)
+    end
+
+    it 'can create a walk with a different start point and end point' do
+      fill_in "walk[distance]", with: 5
+      fill_in "walk[start_location]", with: "39.7494680, -105.0000480"
+      fill_in "walk[finish_location]", with: "39.7494680, -104.0000480"
+      click_button("Take A Walk")
+      within("div.start_location")do
+        expect(page).to have_content "1433 15th St, Denver, CO"
+        expect(page).to_not have_content "1564 Hanks Crossing Rd, Byers, CO"
+      end
+      within("div.finish_location")do
+        expect(page).to have_content "1564 Hanks Crossing Rd, Byers, CO"
+        expect(page).to_not have_content "1433 15th St, Denver, CO"
+      end
     end
 
     it 'cannot create a walk without a distance' do
@@ -54,13 +103,13 @@ describe 'walk' do
     end
 
     context 'after a walk is created' do
-      xit 'is directed to the walk show page' do	
+      it 'is directed to the walk show page' do
         fill_in "walk[name]", with: "Test Walk"
         fill_in "walk[distance]", with: 5
         click_button("Take A Walk")
       end
 
-      xit 'has the walk that was just created on the show page' do
+      it 'has the walk that was just created on the show page' do
         fill_in "walk[name]", with: "Test Walk"
         fill_in "walk[distance]", with: 5
         click_button("Take A Walk")
@@ -71,31 +120,32 @@ describe 'walk' do
 
   context 'show' do
     before(:each) do
-      @start_locaton = create(:start_location)
+      @start_location = create(:start_location)
+      @finish_location = create(:finish_location)
       @location  = create(:location)
-      @sight = create(:sight, :location => @location)
-      @walk = create(:walk, :sight => @sight)
-      visit walks_path(@walk)
+      @sight = create(:sight, location: @location)
+      @walk = create(:walk, start_location: @start_location, finish_location: @finish_location)
+      visit walk_path(@walk)
     end
 
-    xit "shouldn't fail" do
+    it "shouldn't fail" do
       expect(page.status_code).to eq 200
     end
 
-    xit 'should have the name of the walk' do
+    it 'should have the name of the walk' do
       expect(page).to have_content("Test Walk")
     end
 
-    xit 'should have the start point of the walk' do
-      expect(page).to have_content(@walk.start_location.address)
+    it 'should have the start point of the walk' do
+      expect(page).to have_content(@start_location.address)
     end
 
-    xit 'should have the end point of the walk' do
-      expect(page).to have_content(@walk.end_location.address)
+    it 'should have the end point of the walk' do
+      expect(page).to have_content(@finish_location.address)
     end
 
-    xit 'should have a start point and an end point that are the same' do
-      expect(@walk.end_location.address).to eq(@walk.start_location.address)
+    it 'should have a start point and an end point that are the same by default' do
+      expect(find(:css, "div.finish_location").text).to eq(find(:css, "div.finish_location").text)
     end
 
     xit 'should have the sight location(s)' do

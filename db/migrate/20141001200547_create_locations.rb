@@ -9,7 +9,8 @@ class CreateLocations < ActiveRecord::Migration
       t.string :zipcode
       t.string :country
       t.integer :sight_id
-      t.integer :loc_type
+      t.integer :walk_id
+      t.string :type
     end
   end
 end

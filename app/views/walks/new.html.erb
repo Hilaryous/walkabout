@@ -3,7 +3,9 @@
   <%= f.text_field :name %>
   <%= f.label :distance %>
   <%= f.text_field :distance %>
-  <%= f.label :walk_locations, "Start Point" %>
-  <%= f.text_field :walk_locations %>
+  <%= f.label :start_location, "Start Point" %>
+  <%= f.text_field :start_location %>
+  <%= f.label :finish_location, "End Point" %>
+  <%= f.text_field :finish_location %>
   <%= f.submit "Take A Walk" %>
 <% end %>
