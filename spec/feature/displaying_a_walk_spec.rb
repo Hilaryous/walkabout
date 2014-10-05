@@ -37,20 +37,28 @@ describe 'displaying a walk' do
       expect(page).to have_content(@sight.name)
     end
 
-    xit 'should have the directions from start to sight to end location' do
-      #not sure what this looks like yet
+    it 'should have the directions from start to sight to end location' do
+      expect(page).to have_content("left onto W 29th Ave")
+      expect(page).to have_content("east on W 29th Ave")
     end
   end
 
   context 'two sight locations' do
-    xit 'should have the sight locations' do
-      expect(page).to have_content(@walk.locations)
-      #want it to have the location of the site
-      #starting out with just one sight will move towards multiple sites
+    before(:each) do
+      @location_2 = Location.create(street: "1445 Larimer St", city: "Denver", state: "CO")
+      @sight_2 = Sight.create(name:"Gallup-Stanbury Building", kind: "historic landmark", location: @location_2)
+      WalkLocation.create(walk_id: @walk.id, location_id: @location_2.id)
+      visit walk_path(@walk)
+    end
+
+    it 'should have the sight locations' do
+      expect(page).to have_content("1445 Larimer St")
     end
 
     xit 'should have the directions from start to sight to sight to end location' do
-      #not sure what this looks like yet
+      expect(page).to have_content("right onto Larimer St")
+      expect(page).to have_content("left onto 15th St")
+      expect(page).to have_content("right onto Umatilla St")
     end
   end
 end

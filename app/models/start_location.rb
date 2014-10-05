@@ -1,5 +1,6 @@
 class StartLocation < Location
   belongs_to :walk
+
   def nearest_locations
     if walk.locations.count == 0
       Location.near([latitude, longitude], 0)
