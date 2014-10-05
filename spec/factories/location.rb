@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :location do
-    latitude 39.74745784
-    longitude -104.95018343
+    latitude 39.75848
+    longitude -105.0241
   end
 end

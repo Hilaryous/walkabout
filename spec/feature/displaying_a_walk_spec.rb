@@ -7,6 +7,7 @@ describe 'displaying a walk' do
     @location  = create(:location)
     @sight = create(:sight, location: @location)
     @walk = create(:walk, start_location: @start_location, finish_location: @finish_location)
+    WalkLocation.create(walk_id: @walk.id, location_id: @location.id )
     visit walk_path(@walk)
   end
 
@@ -31,10 +32,9 @@ describe 'displaying a walk' do
   end
 
   context 'one sight location' do
-    xit 'should have the sight location' do
-      expect(page).to have_content(@walk.sight.location)
-      #want it to have the location of the site
-      #starting out with just one sight will move towards multiple sites
+    it 'should have the sight location' do
+      expect(page).to have_content(@location.address)
+      expect(page).to have_content(@sight.name)
     end
 
     xit 'should have the directions from start to sight to end location' do
@@ -44,7 +44,7 @@ describe 'displaying a walk' do
 
   context 'two sight locations' do
     xit 'should have the sight locations' do
-      expect(page).to have_content(@walk.sight.location)
+      expect(page).to have_content(@walk.locations)
       #want it to have the location of the site
       #starting out with just one sight will move towards multiple sites
     end

@@ -26,6 +26,7 @@ task :import => [:environment] do
       :sight_id => Sight.last.id
       })
   end
+  puts "park file imported"
 
   CSV.foreach(public_art_file, :headers => true) do |row|
     Sight.create({
@@ -39,6 +40,7 @@ task :import => [:environment] do
       :sight_id => Sight.last.id
       })
   end
+  puts "public art file imported"
 
   CSV.foreach(park_fountain_file, :headers => true) do |row|
     Sight.create({
@@ -51,6 +53,7 @@ task :import => [:environment] do
       :sight_id => Sight.last.id
       })
   end
+  puts "park fountain file imported"
 
   CSV.foreach(historic_landmark_file, :headers => true) do |row|
     Sight.create({
@@ -66,6 +69,7 @@ task :import => [:environment] do
       :sight_id => Sight.last.id
       })
   end
+  puts "historic landmark file imported"
 
   CSV.foreach(downtown_historic_district_file, :headers => true) do |row|
     Sight.create({
@@ -80,4 +84,6 @@ task :import => [:environment] do
       :sight_id => Sight.last.id
       })
   end
+
+  puts "downtown historic district file imported"
 end

@@ -1,4 +1,5 @@
 class Location < ActiveRecord::Base
+  belongs_to :sight
   has_many :walk_locations
   has_many :walks, through: :walk_locations
 

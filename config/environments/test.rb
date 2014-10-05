@@ -40,7 +40,7 @@ Rails.application.configure do
   #for ip address lookup
   class ActionDispatch::Request
     def remote_ip
-      "71.212.123.5"
+      "71.229.154.197"
     end
   end
 end

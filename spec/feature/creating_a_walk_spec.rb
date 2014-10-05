@@ -61,10 +61,10 @@ describe 'creating a walk' do
       fill_in "walk[distance]", with: 5
       click_button("Take A Walk")
       within("div.start_location") do
-        expect(page).to have_content "2414 1st Ave, Seattle, WA" #this is a hardcoded test ip
+        expect(page).to have_content "101 E 14th Ave, Denver, CO" #this is a hardcoded test ip
       end
       within("div.finish_location") do
-        expect(page).to have_content "2414 1st Ave, Seattle, WA" #this is a hardcoded test ip
+        expect(page).to have_content "101 E 14th Ave, Denver, CO" #this is a hardcoded test ip
       end
     end
 
@@ -88,6 +88,14 @@ describe 'creating a walk' do
         expect(page).to have_content "1564 Hanks Crossing Rd, Byers, CO"
         expect(page).to_not have_content "1433 15th St, Denver, CO"
       end
+    end
+
+    xit 'cannot create a walk if the difference between start and end locations are more than the distance' do
+      fill_in "walk[distance]", with: 5
+      fill_in "walk[start_location]", with: "39.7494680, -105.0000480"
+      fill_in "walk[finish_location]", with: "39.7494680, -104.0000480"
+      click_button("Take A Walk")
+      expect(page).to have_content("cannot be greater")
     end
   end
 

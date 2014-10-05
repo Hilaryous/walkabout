@@ -6,11 +6,10 @@ class WalksController < ApplicationController
   def create
     @walk = Walk.new(walk_params)
     if @walk.save
-      process_and_create_locations
-
+      process_and_create_start_and_end_locations
+      assign_common_locations_to_walk
       redirect_to walk_path(@walk)
     else
-      flash[:error] = "Distance field cannot be blank"
       render :new
     end
   end
@@ -45,18 +44,26 @@ class WalksController < ApplicationController
       @lng = lookup_ip_location.longitude
     end
 
-    def process_and_create_locations
+    def process_and_create_start_and_end_locations
       types = ["start_location", "finish_location"]
       types.each_with_index do |type, i|
         if process_position(type) == nil
           process_ip(lookup_ip_location)
         end
-        location = type.partition("_")[0]
-        create_location(location)
+        location_type = type.partition("_")[0]
+        create_start_and_end_location(location_type)
       end
     end
 
-    def create_location(type)
-      Kernel.const_get("#{type.capitalize}Location").create(latitude: @lat, longitude: @lng, walk_id: @walk.id)
+    def create_start_and_end_location(type)
+      instance_variable_set("@#{type}_location",Kernel.const_get("#{type.capitalize}Location").create(latitude: @lat, longitude: @lng, walk_id: @walk.id))
+    end
+
+    def assign_common_locations_to_walk
+      (@start_location.nearest_locations & @finish_location.nearest_locations).map do|i|
+        if i.class == Location
+          WalkLocation.create(walk_id: @walk.id, location_id: i.id)
+        end
+      end
     end
 end
