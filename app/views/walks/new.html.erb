@@ -1,5 +1,5 @@
 <% @walk.errors.each do |attr, msg| %>
-<%= "#{attr} #{msg}" if @walk.errors[attr].first == msg %> 
+<%= "#{attr} #{msg}" if @walk.errors[attr].first == msg %>
 <% end %>
 
 <%= form_for @walk do |f|%>
@@ -13,3 +13,4 @@
   <%= f.text_field :finish_location %>
   <%= f.submit "Take A Walk" %>
 <% end %>
+<%= render 'layouts/map' %>

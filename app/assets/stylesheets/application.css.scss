@@ -22,11 +22,15 @@ img {
 #home-text {
     z-index:100;
     position:absolute;
-    color:white;
+    color:green;
     text-align: center;
     font-size:50px;
     font-weight:bold;
-    top:150px;
+    top:20%;
+    left: 10%;
+    @media (max-width: 400) {
+      width: $container-sm;
+    }
 }
 
 #home-button{
@@ -34,6 +38,9 @@ img {
   position:absolute;
   top:300px;
   left: 43%;
+  @media (max-width: 400) {
+    left: 25%;
+  }
 }
 
 .sight-container{

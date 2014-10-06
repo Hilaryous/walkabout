@@ -6,7 +6,7 @@ class Location < ActiveRecord::Base
   geocoded_by :address
   reverse_geocoded_by :latitude, :longitude do |obj,results|
     if geo = results.first
-      obj.street  = geo.street
+      obj.street  = geo.street_address
       obj.city    = geo.city
       obj.state   = geo.state
       obj.zipcode = geo.postal_code

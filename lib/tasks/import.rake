@@ -19,10 +19,6 @@ task :import => [:environment] do
     Location.create({
       :latitude => row[19],
       :longitude => row[20],
-      :street => row[14],
-      :city => row[16],
-      :state => row[17],
-      :zipcode => row[18],
       :sight_id => Sight.last.id
       })
   end
@@ -37,6 +33,8 @@ task :import => [:environment] do
 
     Location.create({
       :street => row[5],
+      :city => "Denver",
+      :state => "CO",
       :sight_id => Sight.last.id
       })
   end
@@ -50,6 +48,8 @@ task :import => [:environment] do
 
     Location.create({
       :street => row[1],
+      :city => "Denver",
+      :state => "CO",
       :sight_id => Sight.last.id
       })
   end
@@ -86,4 +86,11 @@ task :import => [:environment] do
   end
 
   puts "downtown historic district file imported"
+  @locations = Location.where(street: "1340 Sherman Street")
+  @locations.each do |location|
+    if location.sight
+      location.sight.destroy
+    end
+  end
+  Location.destroy_all(street: "1340 Sherman Street")
 end

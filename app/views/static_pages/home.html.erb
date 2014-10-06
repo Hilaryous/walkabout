@@ -1,5 +1,5 @@
 <div>
-  <img src="images/city-park.jpg" class="img">
+  <%= render 'layouts/map' %>
   <h1 id="home-text">We'll be your compass, All you have to do is...</h1>
-  <span id="home-button"><%= link_to "Take a Walk", root_path, class: "btn btn-success btn-home btn-lg" %></span>
+  <span id="home-button"><%= link_to "Take a Walk", new_walk_path, class: "btn btn-success btn-home btn-lg" %></span>
 </div>

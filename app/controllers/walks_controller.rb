@@ -6,7 +6,7 @@ class WalksController < ApplicationController
   def create
     @walk = Walk.new(walk_params)
     if @walk.save
-      process_and_create_start_and_end_locations
+      process_and_create_start_location
       assign_common_locations_to_walk
       redirect_to walk_path(@walk)
     else
@@ -44,8 +44,8 @@ class WalksController < ApplicationController
       @lng = lookup_ip_location.longitude
     end
 
-    def process_and_create_start_and_end_locations
-      types = ["start_location", "finish_location"]
+    def process_and_create_start_location
+      types = ["start_location"]
       types.each_with_index do |type, i|
         if process_position(type) == nil
           process_ip(lookup_ip_location)
@@ -60,7 +60,7 @@ class WalksController < ApplicationController
     end
 
     def assign_common_locations_to_walk
-      (@start_location.nearest_locations & @finish_location.nearest_locations).map do|i|
+      (@start_location.nearest_locations.sample(1)).map do |i|
         if i.class == Location
           WalkLocation.create(walk_id: @walk.id, location_id: i.id)
         end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :sight do
-    name "Queree House"
-    kind "historic landmark"
+    name "Lawson (Sonny) Park"
+    kind "Park"
   end
 end
