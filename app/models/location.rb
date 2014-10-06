@@ -25,4 +25,8 @@ class Location < ActiveRecord::Base
     attrs = %w(street city state)
     attrs.any?{|a| send "#{a}_changed?"}
   end
+
+  def nearest_locations
+    Location.near([latitude, longitude], walk.distance)
+  end
 end
