@@ -1,16 +1,23 @@
 <% @walk.errors.each do |attr, msg| %>
 <%= "#{attr} #{msg}" if @walk.errors[attr].first == msg %>
 <% end %>
-
-<%= form_for @walk do |f|%>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :distance %>
-  <%= f.text_field :distance %>
-  <%= f.label :start_location, "Start Point" %>
-  <%= f.text_field :start_location %>
-  <%= f.label :finish_location, "End Point" %>
-  <%= f.text_field :finish_location %>
-  <%= f.submit "Take A Walk" %>
-<% end %>
-<%= render 'layouts/map' %>
+<div class="row">
+  <div class= "col-md-3 walk-form">
+    <%= form_for @walk, :html => {:id => "calcutale_route" } do |f|%>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+      <%= f.label :distance %>
+      <%= f.text_field :distance, class: "form-control"  %>
+      <%= f.label :start_location, "Start Point" %>
+      <%= f.text_field :start_location, class: "form-control"  %>
+      <%= f.label :locations %>
+      <%= f.hidden_field :locations %>
+      <%= f.label :finish_location, "End Point" %>
+      <%= f.text_field :finish_location, class: "form-control"  %><br/>
+      <%= f.submit "Take A Walk", class: "btn btn-success" %>
+    <% end %>
+  </div>
+  <div class="col-md-9">
+    <%= render 'layouts/new_directions_map' %>
+  </div>
+</div>
