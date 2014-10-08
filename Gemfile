@@ -16,6 +16,9 @@ gem 'unicorn'
 gem 'postgres-copy'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem "figaro"
+gem 'google-api-client'
+gem 'omniauth-google-oauth2'
 gem "paperclip", "~> 4.2"
 
 group :production do
