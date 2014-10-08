@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20141002183321) do
   end
 
   create_table "walks", force: true do |t|
-    t.string  "name"
-    t.integer "distance"
+    t.string "name"
+    t.float  "distance"
   end
 
 end

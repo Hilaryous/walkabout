@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'creating a walk' do
   before(:each) do
     @location  = create(:location)
+    @location_2 = Location.create(street: "144 West Colfax Avenue", city: "Denver", state: "CO")
     @sight = create(:sight, :location => @location)
     visit new_walk_path
   end
