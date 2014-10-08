@@ -26,27 +26,22 @@ class Location < ActiveRecord::Base
     attrs.any?{|a| send "#{a}_changed?"}
   end
 
-  def locations_within_walk_distance_bubble
-    Location.near([latitude, longitude], walk.distance)
+  def locations_within_walk_distance_circumfrance
+    Location.near([latitude, longitude], StartLocation.last.walk.distance)
   end
 
-  def non_start_locations
-    locations_within_walk_distance_bubble.where(type: nil)
+  def locations
+    # need to elinimate allll locations that currently belong to the walk
+    current_walk_locations = StartLocation.last.walk.locations.map do |location|
+      location.id
+    end
+    locations_within_walk_distance_circumfrance.where(type: nil).where.not(id: [current_walk_locations])
   end
 
   def distance_from_start
     distance_hash = Hash.new
-    non_start_locations.map do |location|
-      distance = walk.start_location.distance_from([location.latitude, location.longitude])
-      distance_hash[location] = distance
-    end
-    distance_hash
-  end
-
-  def distance_from_non_start_locations
-    distance_hash = Hash.new
-    non_start_locations.map.with_index do |location, index|
-      distance = walk.locations.distance_from([location.latitude, location.longitude])
+    locations.map.with_index do |location, index|
+      distance = StartLocation.last.walk.locations.last.distance_from([location.latitude, location.longitude])
       distance_hash[location] = distance
     end
     distance_hash
@@ -54,9 +49,5 @@ class Location < ActiveRecord::Base
 
   def closest_location_to_start
     location = distance_from_start.min_by{|k,v| v}.first
-  end
-
-  def closest_location
-    location = distance_from_non_start_locations.min_by{|k,v| v}.first
   end
 end

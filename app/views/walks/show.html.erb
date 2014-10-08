@@ -10,17 +10,18 @@
           </div>
         </h4>
       </li>
+      <li>
+        <div id="waypoints">
+        </div>
+      </li>
       <ol>
         <div id="steps">
         </div>
       </ol>
       <li>
         <h4>
-          <div class="sights">
-            <% @walk.locations.each do |location| %>
-              <%= location.sight.name %><br/>
-              <%= location.address %>
-            <% end %>
+          <div class="end_sight">
+            <%= @walk.start_location.address %>
           </div>
         </h4>
       </li>

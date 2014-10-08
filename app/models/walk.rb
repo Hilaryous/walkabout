@@ -6,16 +6,21 @@ class Walk < ActiveRecord::Base
 
   validates :distance, presence: true
 
+  def waypoints
+    locations.to_json(:only => [:latitude, :longitude])
+  end
+
   def total_distance
-    locations.reduce(0) do |sum, location|
-      sum + location.distance
+    distances = locations.map do |location|
+      location.distance_from([start_location.latitude, start_location.longitude])
     end
+    distances.reduce(:+)
   end
 
   def assign_locations
     locations << start_location.closest_location_to_start
-    until total_distance == distance
-      locations << locations[0].closest_location
+    while total_distance < distance
+      locations << locations.last.closest_location_to_start
     end
   end
 end
