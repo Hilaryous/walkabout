@@ -1,35 +1,41 @@
-<nav class="navbar navbar-default" role="navigation">
+<% if request.path == "/" %>
+  <nav class="navbar" role="navigation">
+<% else %>
+  <nav class="navbar navbar-not-home" role="navigation">
+<% end %>
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Walkabout</a>
-    </div>
+      <div class="top-nav">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "Walkabout", root_path, class: "navbar-brand"%>
+        </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><%= link_to "Sightsee", sights_path %></li>
-        <li><%= link_to "Take A Walk", new_walk_path %></li>
-        <% if current_user %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %><span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Profile</a></li>
-              <li><a href="#">My Walks</a></li>
-              <li class="divider"></li>
-              <li><%= link_to "Sign Out", signout_path %></li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Sign In with Google", '/auth/google_oauth2' %></li>
-        <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav nav-pills navbar-right">
+            <li ><%= link_to "Sightsee", sights_path %></li>
+            <li><%= link_to "Take A Walk", new_walk_path %></li>
+            <% if current_user %>
+              <li class="dropdown active">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %><span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Profile</a></li>
+                  <li><a href="#">My Walks</a></li>
+                  <li class="divider"></li>
+                  <li><%= link_to "Sign Out", signout_path %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li class="active"><%= link_to "Sign In with Google", '/auth/google_oauth2' %></li>
+            <% end %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
   </div><!-- /.container-fluid -->
 </nav>

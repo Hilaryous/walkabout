@@ -3,6 +3,7 @@ class CreateWalk < ActiveRecord::Migration
     create_table :walks do |t|
       t.string :name
       t.float :distance
+      t.integer :user_id
     end
   end
 end

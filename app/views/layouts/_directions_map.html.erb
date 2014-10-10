@@ -1,165 +1,103 @@
-<div id="map" style='width: 100%; height: 90vh;'></div>
+<div id="directions" style='width: 100%; height: 75vh;'></div>
+<%= javascript_include_tag('map_style.js') %>
 <script>
-  var mapStyle = [
-      {
-        "featureType": "landscape",
-        "stylers": [
-          {
-            "hue": "#FFA800"
-          },
-          {
-            "saturation": 0
-          },
-          {
-            "lightness": 0
-          },
-          {
-            "gamma": 1
-          }
-        ]
-      },
-
-      {
-        "featureType": "road.highway",
-        "stylers": [
-          {
-            "hue": "#53FF00"
-          },
-          {
-            "saturation": -73
-          },
-          {
-            "lightness": 40
-          },
-          {
-            "gamma": 1
-          }
-        ]
-      },
-
-      {
-        "featureType": "road.arterial",
-          "stylers": [
-            {
-              "hue": "#FBFF00"
-            },
-            {
-              "saturation": 0
-            },
-            {
-              "lightness": 0
-            },
-            {
-              "gamma": 1
-            }
-          ]
-      },
-
-      {
-        "featureType": "road.local",
-        "stylers": [
-          {
-            "hue": "#00FFFD"
-          },
-          {
-            "saturation": 0
-          },
-          {
-            "lightness": 30
-          },
-          {
-            "gamma": 1
-          }
-        ]
-      },
-
-      {
-        "featureType": "water",
-        "stylers": [
-          {
-            "hue": "#00BFFF"
-          },
-          {
-            "saturation": 6
-          },
-          {
-            "lightness": 8
-          },
-          {
-            "gamma": 1
-          }
-        ]
-      },
-
-      {
-        "featureType": "poi",
-        "stylers": [
-          {
-            "hue": "#679714"
-          },
-          {
-            "saturation": 33.4
-          },
-          {
-            "lightness": -25.4
-          },
-          {
-            "gamma": 1
-          }
-        ]
-      }
-  ]
-
-  function initialize() {
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    var mapOptions = {
-      zoom: 8,
-      center: new google.maps.LatLng(<%= @walk.start_location.latitude %>, <%= @walk.start_location.longitude %>),
-      styles: mapStyle
-    };
-
+  $(document).ready(function initialize(){
     var directionsService = new google.maps.DirectionsService();
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var waypoints = <%= @walk.waypoints.html_safe %>;
     var wypnts = [];
+
     for (var i = 0; i < waypoints.length; i++) {
       wypnts.push({
           location: new google.maps.LatLng(waypoints[i].latitude, waypoints[i].longitude),
-          stopover: false
+          stopover: true
       });
     }
 
-    var start = new google.maps.LatLng(<%= @walk.start_location.latitude %>,<%= @walk.start_location.longitude %>)
-    var finish = new google.maps.LatLng(<%= @walk.start_location.latitude %>, <%= @walk.start_location.longitude %>)
+    function calcRoute(){
+      var origin = new google.maps.LatLng(<%= @walk.start_location.latitude %>,<%= @walk.start_location.longitude %>);
+      var destination = new google.maps.LatLng(<%= @walk.start_location.latitude %>, <%= @walk.start_location.longitude %>);
 
-    var directionsRequest = {
-      origin: start,
-      destination:finish,
-      waypoints: wypnts,
-      optimizeWaypoints: true,
-      travelMode: google.maps.DirectionsTravelMode.WALKING,
-      unitSystem: google.maps.UnitSystem.IMPERIAL
-    };
+      var request = {
+        origin: origin,
+        destination:destination,
+        waypoints: wypnts,
+        optimizeWaypoints: true,
+        travelMode: google.maps.DirectionsTravelMode.WALKING,
+        unitSystem: google.maps.UnitSystem.IMPERIAL
+      };
 
-    directionsService.route(directionsRequest, function(response, status) {
-      //Check if request is successful.
-      if (status == google.maps.DirectionsStatus.OK) {
-        var distance = document.getElementById('distance');
-        distance.innerHTML = (response.routes[0].legs[0].distance.text) + distance.innerHTML;
-        var stepsLength = response.routes[0].legs[0].steps.length;
-        for (var i = 0; i < stepsLength; i++) {
-          var steps = document.getElementById('steps');
-          var instructions = response.routes[0].legs[0].steps[i].instructions;
-          var stepLength = response.routes[0].legs[0].steps[i].distance.text;
-          steps.innerHTML = steps.innerHTML + '<li>' + (instructions) + '</li>' + ' ' + '<p id= "tiny">' + (stepLength) + '</p>';
+      directionsService.route(request ,function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          var distance = document.getElementById('distance');
+          distance.innerHTML = (response.routes[0].legs[0].distance.text) + distance.innerHTML;
+
+          var legsLength = response.routes[0].legs.length;
+          console.log(response.routes[0].legs);
+          for (var i = 0; i < legsLength; i++) {
+            var legs = document.getElementById('legs');
+            var leg_index = " id=leg-" + (i)
+            var collapse_name = "#collapse-" + (i + 2)
+            var new_collapse_name = "collapse-" + (i + 1)
+            var step_id = "step-" + (i+ 1)
+            var leg_address = response.routes[0].legs[i].end_address;
+            var not_last_leg = legsLength - 1
+            if(i < not_last_leg)
+              legs.innerHTML +=
+              '<div class="panel-heading">' +
+                '<h4 class="panel-title">' +
+                  '<a data-toggle="collapse" data-parent="#accordion" href=' + (collapse_name)+ (leg_index) + '>' +
+                    (leg_address)
+                  '</a>' +
+                '</h4>' +
+              '</div>' +
+              '<div id=' + (new_collapse_name) + '>' +
+                  '<div class="panel-body">' +
+                  '<ul' + (step_id) '>' +
+                '  </ul>' +
+                '</div>' +
+              '</div>';
+
+            var stepsLength = response.routes[0].legs[i].steps.length;
+            for (var j = 0; j < stepsLength; j++) {
+              var other_stuff = "class=panel-collapse collapse"
+              var new_collapse_name = "collapse-" + (i + 1)
+              var step_id = "step-" + (i+ 1)
+              var legs = document.getElementById(step_id)
+              var instructions = response.routes[0].legs[i].steps[j].instructions;
+              var stepLength = response.routes[0].legs[i].steps[j].distance.text;
+              console.log(i);
+              console.log(new_collapse_name);
+              if(i === 0){
+                step_id.innerHTML = step_one.innerHTML +
+                  '<li>' + (instructions) + '</li>' + ' ' +
+                  '<p id= "tiny">' + (stepLength) + '</p>';
+                  document.getElementById("step_one").className = "panel-collapse"
+                document.getElementById(new_collapse_name).className = "panel-collapse"
+              }
+
+            }
+          }
+          directionsDisplay.setDirections(response);
         }
-        directionsDisplay.setDirections(response); //Display the directions result
+      });
+    }
+    calcRoute();
+
+    handler = Gmaps.build('Google');
+    handler.buildMap({
+        provider: {
+          zoom: 8,
+          center: new google.maps.LatLng(<%= @walk.start_location.latitude %>, <%= @walk.start_location.longitude %>),
+          styles: mapStyle
+        },
+        internal: {
+          id: 'directions'
+        }
+      },
+      function(){
+        directionsDisplay.setMap(handler.getMap());
       }
-    });
-
-    directionsDisplay.setMap(map);
-  };
-
-  google.maps.event.addDomListener(window, 'load', initialize);
-
+    );
+  });
 </script>

@@ -1,23 +1,40 @@
-<% @walk.errors.each do |attr, msg| %>
-<%= "#{attr} #{msg}" if @walk.errors[attr].first == msg %>
-<% end %>
-<div class="row">
-  <div class= "col-md-3 walk-form">
-    <%= form_for @walk, :html => {:id => "calcutale_route" } do |f|%>
-      <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control" %>
-      <%= f.label :distance %>
-      <%= f.text_field :distance, class: "form-control"  %>
-      <%= f.label :start_location, "Start Point" %>
-      <%= f.text_field :start_location, class: "form-control"  %>
-      <%= f.label :locations %>
-      <%= f.hidden_field :locations %>
-      <%= f.label :finish_location, "End Point" %>
-      <%= f.text_field :finish_location, class: "form-control"  %><br/>
-      <%= f.submit "Take A Walk", class: "btn btn-success" %>
-    <% end %>
-  </div>
-  <div class="col-md-9">
-    <%= render 'layouts/new_directions_map' %>
+<div class= "new-walk-container">
+  <div class="row">
+    <div class= "col-md-3 walk-form">
+      <div class="errors">
+        <% @walk.errors.each do |attr, msg| %>
+          <% if @walk.errors[attr].first == msg %>
+            <%= "#{attr.capitalize} #{msg}" %>
+            <script>
+              $(document).ready(function initialize(){
+                var distance = document.getElementById('distance');
+                distance.className += 'form-group has-error has-feedback';
+                var icon = ' <span class="glyphicon glyphicon-remove form-control-feedback"></span>'
+                distance.innerHTML += icon
+              });
+            </script>
+          <% end %>
+        <% end %>
+      </div>
+      <h3>Create Your Walk</h3>
+      <%= form_for @walk, :html => {:id => "calcutale_route" } do |f|%>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %><br/>
+        <div id="distance">
+          <%= f.label :distance %>
+          <%= f.text_field :distance, class: "form-control"  %><br/>
+        </div>
+        <%= f.label :start_location, "Start Point" %>
+        <%= f.text_field :start_location, class: "form-control", placeholder: "Current Location" %><br/>
+        <%= f.label :locations %>
+        <%= f.hidden_field :locations %>
+        <%= f.label :finish_location, "End Point" %>
+        <%= f.text_field :finish_location, class: "form-control", placeholder: "Current Location"  %><br/>
+        <%= f.submit "Take A Walk", class: "btn btn-success" %>
+      <% end %>
+    </div>
+    <div class="col-md-9" style="padding-right: 50px; padding-left: 50px;">
+      <%= render 'layouts/new_directions_map' %>
+    </div>
   </div>
 </div>

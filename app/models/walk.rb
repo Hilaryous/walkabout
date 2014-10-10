@@ -1,4 +1,5 @@
 class Walk < ActiveRecord::Base
+  belongs_to :user
   has_many :walk_locations
   has_many :locations, through: :walk_locations
   has_one  :start_location

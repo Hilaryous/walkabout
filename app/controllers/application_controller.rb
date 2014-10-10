@@ -9,4 +9,13 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
+
+  def current_location
+    if Rails.env.development? || Rails.env.test?
+      Geocoder.search(request.remote_ip).first
+    else
+      request.location
+    end
+  end
+  helper_method :current_location
 end

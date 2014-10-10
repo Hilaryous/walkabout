@@ -1,4 +1,8 @@
 class WalksController < ApplicationController
+  def index
+    @walks = current_user.walks.all
+  end
+
   def new
     @walk = Walk.new
   end
@@ -6,6 +10,9 @@ class WalksController < ApplicationController
   def create
     @walk = Walk.new(walk_params)
     if @walk.save
+      if current_user
+        @walk.update(user_id: current_user.id)
+      end
       process_and_create_start_location
       @walk.assign_locations
       redirect_to walk_path(@walk)
@@ -15,7 +22,11 @@ class WalksController < ApplicationController
   end
 
   def show
-    @walk = Walk.find(params[:id])
+    if current_user
+      @walk = current_user.walks.find(params[:id])
+    else
+      @walk = Walk.find(params[:id])
+    end
   end
 
   private
@@ -33,11 +44,7 @@ class WalksController < ApplicationController
   end
 
   def lookup_ip_location
-    if Rails.env.development? || Rails.env.test?
-      Geocoder.search(request.remote_ip).first
-    else
-      request.location
-    end
+    current_location
   end
 
   def process_ip(ip_location)

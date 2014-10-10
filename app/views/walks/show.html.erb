@@ -1,33 +1,32 @@
-<div class="row">
-  <div id="route" class="col-md-3">
-    <h1><%= @walk.name %></h1>
-    <h2><div id= "distance"> Walk</div></h2>
-    <ul>
-      <li>
-        <h4>
-          <div class="start_location">
-            <%= @walk.start_location.address %>
+<div class= "walk-container">
+  <div class="row">
+    <div id="route" class="col-md-3">
+      <h2><div id= "distance"> Walk</div></h2>
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default" id="legs">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse-1">
+                <%= @walk.start_location.address %>
+              </a>
+            </h4>
           </div>
-        </h4>
-      </li>
-      <li>
-        <div id="waypoints">
-        </div>
-      </li>
-      <ol>
-        <div id="steps">
-        </div>
-      </ol>
-      <li>
-        <h4>
-          <div class="end_sight">
-            <%= @walk.start_location.address %>
+        <% %>
+          <div id="collapse-1" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul id="step_1">
+              </ul>
+            </div>
           </div>
-        </h4>
-      </li>
-    </ul>
-  </div>
-  <div class="col-md-9">
-    <%= render 'layouts/directions_map' %>
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9" style="padding-right: 50px; padding-left: 50px;margin-top: 50px;">
+      <%= render 'layouts/directions_map' %>
+    </div>
   </div>
 </div>
