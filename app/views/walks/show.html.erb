@@ -11,7 +11,7 @@
               <div class="waypoint">
                 <img width="16" height="16" align="left" src="http://www.iconsdb.com/icons/preview/guacamole-green/circle-outline-xl.png" class="icon"></img>
                 <div class="street-address">
-                  <%= @walk.start_location.address %>
+                  <%= @walk.end_location.address %>
                 </div>
                 <div class= "city_state_zip">
 
@@ -27,5 +27,6 @@
     <div class="col-md-6 sticky-map">
       <%= render 'layouts/directions_map' %>
     </div>
+    <% binding.pry %>
   </div>
 </div>

@@ -57,13 +57,15 @@ describe 'creating a walk' do
       click_button("Take A Walk")
     end
 
-    xit 'will have a start and an end point of current location by default' do
+    it 'will have a start and an end point of current location by default' do
       fill_in "walk[name]", with: "Test Walk"
       fill_in "walk[distance]", with: 1
       click_button("Take A Walk")
-      within("div.start_location") do
-        expect(page).to have_content "101 E 14th Ave, Denver, CO" #this is a hardcoded test ip
-      end
+      expect(first("div.street_address").value).to be "200 E Colfax Ave"
+      expect(all.("div.street_address").last.value).to be "200 E Colfax Ave"
+      # within("div.start_location") do
+      #   expect(page).to have_content "101 E 14th Ave, Denver, CO" #this is a hardcoded test ip
+      # end
       # within("div.finish_location") do
       #   expect(page).to have_content "101 E 14th Ave, Denver, CO" #this is a hardcoded test ip
       # end

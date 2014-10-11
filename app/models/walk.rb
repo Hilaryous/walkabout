@@ -8,7 +8,7 @@ class Walk < ActiveRecord::Base
   validates :distance, presence: true
 
   def waypoints
-    locations.to_json(:only => [:latitude, :longitude])
+    locations.limit(8).to_json(:only => [:latitude, :longitude])
   end
 
   def total_distance
