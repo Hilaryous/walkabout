@@ -2,18 +2,21 @@
 <%= javascript_include_tag('map_style.js') %>
 
 <script type="text/javascript">
-  <%= javascript_include_tag('map_style.js') %>
 
-  handler = Gmaps.build('Google');
-  handler.buildMap({
-    provider: {
-      styles: mapStyle,
-    },
-    internal: {id: 'map'}
-    },
-    function(){
-    markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
+  $(document).ready(initialize);
+
+    function initialize(){
+      handler = Gmaps.build('Google');
+      handler.buildMap({
+        provider: {
+          styles: mapStyle,
+        },
+        internal: {id: 'map'}
+        },
+        function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    }
 </script>
