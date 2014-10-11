@@ -244,5 +244,106 @@ h4.title{
 }
 
 #route{
-  padding-left: 20px;
+  width: 100%;
+  white-space: normal;
+}
+
+.route-content{
+  position: relative;
+  margin-left: 150px;
+  margin-top: 33px;
+  z-index: 0;
+}
+
+#map-box{
+
+  z-index: 10;
+  right: 0;
+  top: 0;
+}
+
+#directions{
+  width: 100%;
+  height: 75vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#step_distance{
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom:16px;
+}
+
+.all-legs{
+  padding-top: 16px;
+  padding-bottom: 50px;
+}
+
+.icon{
+  position: relative;
+  top: 3px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+}
+
+.street-address{
+  font-size: 22px;
+}
+
+.city_state_zip{
+  color: #777;
+  font-size: 15px;
+  font-weight: normal;
+  margin-left: 16px;
+}
+
+.step{
+  margin-left: 36px;
+  position: relative;
+}
+
+.instructions{
+  font-size: 13px;
+  padding: 15px 34px 15px 15px;
+  position: relative;
+}
+
+.distance{
+  position: absolute;
+  left: 0px;
+  right: 0;
+  bottom: -14px;
+  height: 30px;
+  z-index: 1;
+}
+
+.line{
+  border-bottom: 1px solid #e6e6e6;
+  padding-top: 16px;
+  margin: 0 2em 0 0;
+}
+
+.distance_text{
+  position: absolute;
+  right: 0px;
+  top: 8px;
+  font-size: 11px;
+  color: #777;
+  background-color: #fff;
+  padding-left: .5em;
+  padding-right: 5px;
+  z-index: 1;
+}
+
+.sticky-map{
+  padding-right: 50px;
+  padding-left: 50px;
+  margin-top: 100px;
+  position: fixed;
+  z-index: 250;
+  right: 0;
+  top: 0;
 }

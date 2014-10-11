@@ -1,27 +1,30 @@
 <div class= "walk-container">
-  <div class="row">
-    <div id="route" class="col-md-3">
-      <h2><div id= "distance"> Walk</div></h2>
-      <div class="panel-group" id="accordion">
-        <div class="panel panel-default" id="legs">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapse-1">
-                <%= @walk.start_location.address %>
-              </a>
-            </h4>
+  <div class="row" style="padding-top: 50px;">
+    <div class="col-md-6">
+      <div id="route">
+        <div class="route-content">
+          <div id= "step_distance">Walk </div>
+          <div id="all-legs" class="all-legs">
           </div>
-          <div id="collapse-1">
-              <div class="panel-body">
-              <ul id="step-1"> 
-              </ul>
+          <div class="all-legs">
+            <div class="leg">
+              <div class="waypoint">
+                <img width="16" height="16" align="left" src="http://www.iconsdb.com/icons/preview/guacamole-green/circle-outline-xl.png" class="icon"></img>
+                <div class="street-address">
+                  <%= @walk.start_location.address %>
+                </div>
+                <div class= "city_state_zip">
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
 
-    <div class="col-md-9" style="padding-right: 50px; padding-left: 50px;margin-top: 50px;">
+    <div class="col-md-6 sticky-map">
       <%= render 'layouts/directions_map' %>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<div id="directions" style='width: 100%; height: 75vh;'></div>
+<div id="directions"></div>
 <%= javascript_include_tag('map_style.js') %>
 <script>
   $(document).ready(function initialize(){
@@ -29,55 +29,64 @@
 
       directionsService.route(request ,function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
-          var distance = document.getElementById('distance');
-          distance.innerHTML = (response.routes[0].legs[0].distance.text) + distance.innerHTML;
-
-          var legsLength = response.routes[0].legs.length;
-          console.log(response.routes[0].legs);
+          var legs = response.routes[0].legs
+          var legsLength = legs.length;
+          var step_distance = document.getElementById('step_distance');
+          var totalDistance = 0;
+          var totalDuration = 0;
           for (var i = 0; i < legsLength; i++) {
-            var legs = document.getElementById("legs");
-            var collapse_name = "#collapse-" + (i + 2)
-            var new_collapse_name ='collapse-' + (i + 2)
-            var step_id = 'step-' + (i+ 2)
-            var leg_address = response.routes[0].legs[i].end_address;
-            var not_last_leg = legsLength - 1
-            if(i < not_last_leg)
-              legs.innerHTML +=
-              '<div class="panel-heading">' +
-                '<h4 class="panel-title">' +
-                  '<a data-toggle="collapse" data-parent="#accordion" href="' + (collapse_name) + '">' +
-                    (leg_address) +
-                  '</a>' +
-                '</h4>' +
-              '</div>' +
-              '<div id="' + (new_collapse_name) + '">' +
-                  '<div class="panel-body">' +
-                  '<ul id="' + (step_id) + '">' +
-                  '</ul>' +
+            totalDistance += legs[i].distance.value;
+            totalDuration += legs[i].duration.value;
+            var all_legs = document.getElementById("all-legs");
+            var leg_id = "leg-" + (i)
+            var leg_steps_id = "leg_steps" + (i)
+            var leg_address = legs[i].start_address;
+            var street_address = legs[i].start_address.split("Denver", 1)
+            var city_state_zip = legs[i].start_address.split(",").slice(-3, -1)
+
+            all_legs.innerHTML +=
+            '<div class="leg" id="' + (leg_id) +'">' +
+              '<div class="waypoint">' +
+                '<img width="16" height="16" align="left" src="http://www.iconsdb.com/icons/preview/guacamole-green/circle-outline-xl.png" class="icon"></img>' +
+                '<div class="street-address">' +
+                  (street_address) +
                 '</div>' +
-              '</div>';
+                '<div class= "city_state_zip">' +
+                  (city_state_zip)+
+                '</div>' +
+              '</div>' +
+              '<div class="steps">' +
+                '<ol id="' + (leg_steps_id) + '">' +
+                '</ol>' +
+              '</div>' +
+            '</div>';
 
-
-            var stepsLength = response.routes[0].legs[i].steps.length;
+            var stepsLength = legs[i].steps.length;
             for (var j = 0; j < stepsLength; j++) {
-              var new_collapse_name = 'collapse-' + (i + 1)
-              var step_id = "step-" + (i+ 1)
-              var steps = document.getElementById(step_id)
-              var step_1 = document.getElementById('step-1')
-              var instructions = response.routes[0].legs[i].steps[j].instructions;
-              var stepLength = response.routes[0].legs[i].steps[j].distance.text;
-              if(i === 0){
-                step_1.innerHTML = step_1.innerHTML +
-                  '<li>' + (instructions) + '</li>' + ' ' +
-                  '<p id= "tiny">' + (stepLength) + '</p>';
-              }else{
-                steps.innerHTML = steps.innerHTML +
-                  '<li>' + (instructions) + '</li>' + ' ' +
-                  '<p id= "tiny">' + (stepLength) + '</p>';
-              }
-              document.getElementById(new_collapse_name).className += 'panel-collapse collapse';
+              var leg_steps = document.getElementById(leg_steps_id)
+              var step_id = "step-" + (i)
+              var instructions = legs[i].steps[j].instructions;
+              var stepLength = legs[i].steps[j].distance.text;
+              console.log(stepLength);
+              leg_steps.innerHTML +=
+              '<li class="step" id=""' + (step_id) + '>' +
+                '<div class="instructions">' +
+                  '<div class="text">' +
+                    (instructions) +
+                  '</div>' +
+                '</div>' +
+                '<div class="distance">' +
+                  '<div class="line">' +
+                  '</div>' +
+                  '<div class="distance_text">' +
+                    (stepLength) +
+                  '</div>' +
+                '</div>' +
+              '</li>';
             }
           }
+          step_distance.innerHTML += Math.round( totalDistance * 0.000621371 )+' miles, '
+          step_distance.innerHTML += Math.round( totalDuration / 60 )+' minutes'
           directionsDisplay.setDirections(response);
         }
       });
