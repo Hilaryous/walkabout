@@ -35,47 +35,47 @@
           var legsLength = response.routes[0].legs.length;
           console.log(response.routes[0].legs);
           for (var i = 0; i < legsLength; i++) {
-            var legs = document.getElementById('legs');
-            var leg_index = " id=leg-" + (i)
+            var legs = document.getElementById("legs");
             var collapse_name = "#collapse-" + (i + 2)
-            var new_collapse_name = "collapse-" + (i + 1)
-            var step_id = "step-" + (i+ 1)
+            var new_collapse_name ='collapse-' + (i + 2)
+            var step_id = 'step-' + (i+ 2)
             var leg_address = response.routes[0].legs[i].end_address;
             var not_last_leg = legsLength - 1
             if(i < not_last_leg)
               legs.innerHTML +=
               '<div class="panel-heading">' +
                 '<h4 class="panel-title">' +
-                  '<a data-toggle="collapse" data-parent="#accordion" href=' + (collapse_name)+ (leg_index) + '>' +
-                    (leg_address)
+                  '<a data-toggle="collapse" data-parent="#accordion" href="' + (collapse_name) + '">' +
+                    (leg_address) +
                   '</a>' +
                 '</h4>' +
               '</div>' +
-              '<div id=' + (new_collapse_name) + '>' +
+              '<div id="' + (new_collapse_name) + '">' +
                   '<div class="panel-body">' +
-                  '<ul' + (step_id) '>' +
-                '  </ul>' +
+                  '<ul id="' + (step_id) + '">' +
+                  '</ul>' +
                 '</div>' +
               '</div>';
 
+
             var stepsLength = response.routes[0].legs[i].steps.length;
             for (var j = 0; j < stepsLength; j++) {
-              var other_stuff = "class=panel-collapse collapse"
-              var new_collapse_name = "collapse-" + (i + 1)
+              var new_collapse_name = 'collapse-' + (i + 1)
               var step_id = "step-" + (i+ 1)
-              var legs = document.getElementById(step_id)
+              var steps = document.getElementById(step_id)
+              var step_1 = document.getElementById('step-1')
               var instructions = response.routes[0].legs[i].steps[j].instructions;
               var stepLength = response.routes[0].legs[i].steps[j].distance.text;
-              console.log(i);
-              console.log(new_collapse_name);
               if(i === 0){
-                step_id.innerHTML = step_one.innerHTML +
+                step_1.innerHTML = step_1.innerHTML +
                   '<li>' + (instructions) + '</li>' + ' ' +
                   '<p id= "tiny">' + (stepLength) + '</p>';
-                  document.getElementById("step_one").className = "panel-collapse"
-                document.getElementById(new_collapse_name).className = "panel-collapse"
+              }else{
+                steps.innerHTML = steps.innerHTML +
+                  '<li>' + (instructions) + '</li>' + ' ' +
+                  '<p id= "tiny">' + (stepLength) + '</p>';
               }
-
+              document.getElementById(new_collapse_name).className += 'panel-collapse collapse';
             }
           }
           directionsDisplay.setDirections(response);
