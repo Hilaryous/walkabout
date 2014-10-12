@@ -27,12 +27,7 @@
         unitSystem: google.maps.UnitSystem.IMPERIAL
       };
 
-      var currentUrl = window.location.href;
-      var parsedUrl = $.get(currentUrl)
-      console.log(parsedUrl)
-
       directionsService.route(request ,function(response, status) {
-        jQuery.param(response.routes[0])
         if (status == google.maps.DirectionsStatus.OK) {
           var legs = response.routes[0].legs
           var legsLength = legs.length;

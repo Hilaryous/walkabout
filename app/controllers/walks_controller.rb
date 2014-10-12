@@ -53,7 +53,7 @@ class WalksController < ApplicationController
   end
 
   def process_and_create_start_location
-    types = ["start_location"]
+    types = ["start_location", "finish_location"]
     types.each_with_index do |type, i|
       if process_position(type) == nil
         process_ip(lookup_ip_location)

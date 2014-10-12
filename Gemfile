@@ -46,9 +46,9 @@ group :test do
   gem 'nyan-cat-formatter'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
   gem 'factory_girl_rails', '~> 4.0'
   gem "codeclimate-test-reporter", require: nil
-
 end
 
 # Use ActiveModel has_secure_password

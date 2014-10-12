@@ -15,7 +15,7 @@ describe 'displaying a walk' do
     expect(page.status_code).to eq 200
   end
 
-  it 'should have the name of the walk' do
+  xit 'should have the name of the walk' do
     expect(page).to have_content("Test Walk")
   end
 
@@ -32,13 +32,12 @@ describe 'displaying a walk' do
   end
 
   context 'one sight location' do
-    xit 'should have the sight location' do
-      expect(page).to have_content(@location.address)
-      expect(page).to have_content(@sight.name)
+    it 'should have the location', :js => true do
+      expect(page).to have_content("Welton")
     end
 
-    it 'should have the directions from start to sight to end location' do
-      # expect(page).to have_content("left onto Welton St") javascript
+    it 'should have the directions from start to sight to end location', :js => true do
+      expect(page).to have_content("left onto Welton")
     end
   end
 
@@ -50,12 +49,12 @@ describe 'displaying a walk' do
       visit walk_path(@walk)
     end
 
-    xit 'should have the sight locations' do
-      expect(page).to have_content("1445 Larimer St")
+    it 'should have the sight locations', :js => true do
+      expect(page).to have_content("Larimer")
     end
 
-    xit 'should have the directions from start to sight to sight to end location' do
-      expect(page).to have_content("left toward Grant St")
+    it 'should have the directions from start to sight to sight to end location', :js => true do
+      expect(page).to have_content("left onto 15th")
     end
   end
 end
