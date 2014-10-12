@@ -11,12 +11,8 @@ describe 'displaying a walk' do
     visit walk_path(@walk)
   end
 
-  it "shouldn't fail" do
+  it "should pass" do
     expect(page.status_code).to eq 200
-  end
-
-  xit 'should have the name of the walk' do
-    expect(page).to have_content("Test Walk")
   end
 
   it 'should have the start point of the walk' do
@@ -24,11 +20,11 @@ describe 'displaying a walk' do
   end
 
   it 'should have the end point of the walk' do
-    # expect(page).to have_content(@finish_location.address)
+    expect(page).to have_content(@finish_location.address)
   end
 
   it 'should have a start point and an end point that are the same by default' do
-    # expect(find(:css, "div.finish_location").text).to eq(find(:css, "div.finish_location").text)
+    expect(all(".street-address").last.text).to eq(first(".street-address").text)
   end
 
   context 'one sight location' do
@@ -37,7 +33,37 @@ describe 'displaying a walk' do
     end
 
     it 'should have the directions from start to sight to end location', :js => true do
-      expect(page).to have_content("left onto Welton")
+      within ('#leg-0') do
+        within ("#step-0") do
+          expect(first(".text").text).to eq("Head southeast on 15th St toward Market St")
+        end
+        within ("#step-1") do
+          expect(first(".text").text).to include("Destination will be on")
+        end
+      end
+      within ('#leg-1') do
+        within ("#step-1") do
+          expect(first(".text").text).to include("right onto 15th")
+        end
+      end
+    end
+
+    it 'should have the distances of the steps', :js => true do
+      within('#leg-0') do
+        within ("#step-0") do
+          expect(first(".distance").text).to eq('0.6 mi')
+        end
+
+        within ("#step-1") do
+          expect(first(".distance").text).to eq('0.8 mi')
+        end
+      end
+
+      within('#leg-1') do
+        within ("#step-1") do
+          expect(first(".distance").text).to eq('0.6 mi')
+        end
+      end
     end
   end
 
@@ -51,10 +77,42 @@ describe 'displaying a walk' do
 
     it 'should have the sight locations', :js => true do
       expect(page).to have_content("Larimer")
+      expect(page).to have_content("Welton")
     end
 
-    it 'should have the directions from start to sight to sight to end location', :js => true do
-      expect(page).to have_content("left onto 15th")
+    it 'should have the directions from start to sight to end location', :js => true do
+      within ("#leg-0") do
+        within ("#step-0") do
+          expect(first(".text").text).to eq("Head southeast on 15th St toward Market St")
+        end
+        within ("#step-1") do
+          expect(first(".text").text).to include("Destination will be on")
+        end
+      end
+
+      within ("#leg-1") do
+        within ("#step-1") do
+          expect(first(".text").text).to include("right onto 15th")
+        end
+      end
+    end
+
+    it 'should have the distances of the steps', :js => true do
+      within ('#leg-0') do
+        within ("#step-0") do
+          expect(first(".distance").text).to eq('0.6 mi')
+        end
+
+        within ("#step-1") do
+          expect(first(".distance").text).to eq('0.8 mi')
+        end
+      end
+
+      within ('#leg-1') do
+        within all("#step-1").last do
+          expect(first(".distance").text).to eq('0.5 mi')
+        end
+      end
     end
   end
 end

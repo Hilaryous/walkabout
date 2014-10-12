@@ -64,12 +64,12 @@
             var stepsLength = legs[i].steps.length;
             for (var j = 0; j < stepsLength; j++) {
               var leg_steps = document.getElementById(leg_steps_id)
-              var step_id = "step-" + (i)
+              var step_id = "step-" + (j)
               var instructions = legs[i].steps[j].instructions;
               var stepLength = legs[i].steps[j].distance.text;
               console.log(stepLength);
               leg_steps.innerHTML +=
-              '<li class="step" id=""' + (step_id) + '>' +
+              '<li class="step" id="' + (step_id) + '">' +
                 '<div class="instructions">' +
                   '<div class="text">' +
                     (instructions) +

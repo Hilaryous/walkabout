@@ -8,7 +8,7 @@ describe 'creating a walk' do
     visit new_walk_path
   end
 
-  it "shouldn't fail" do
+  it "should pass" do
     expect(page.status_code).to eq 200
   end
 
@@ -94,7 +94,7 @@ describe 'creating a walk' do
     end
 
     xit 'cannot create a walk if the difference between start and end locations are more than the distance', :js => true do
-      ##figure out how to do... ?????
+#################figure out how to do... ?????##########################
       fill_in "walk[distance]", with: 1
       fill_in "walk[start_location]", with: "39.7494680, -105.0000480"
       fill_in "walk[finish_location]", with: "39.7494680, -104.0000480"
