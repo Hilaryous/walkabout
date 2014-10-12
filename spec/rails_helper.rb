@@ -29,12 +29,25 @@ RSpec.configure do |config|
 
   config.include Rails.application.routes.url_helpers
 
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
+  config.include OauthSpecHelper
+
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
+  config.use_transactional_fixtures = true
+
+  config.infer_spec_type_from_file_location!
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
+
   class ActiveRecord::Base
     mattr_accessor :shared_connection
     @@shared_connection = nil
@@ -44,35 +57,12 @@ RSpec.configure do |config|
     end
   end
   ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
-
-  config.use_transactional_fixtures = true
-
-  def require_js
-    Capybara.current_driver = :selenium
-  end
-  # RSpec Rails can automatically mix in different behaviours to your tests
-  # based on their file location, for example enabling you to call `get` and
-  # `post` in specs under `spec/controllers`.
-  #
-  # You can disable this behaviour by removing the line below, and instead
-  # explicitly tag your specs with their type, e.g.:
-  #
-  #     RSpec.describe UsersController, :type => :controller do
-  #       # ...
-  #     end
-  #
-  # The different available types are documented in the features, such as in
-  # https://relishapp.com/rspec/rspec-rails/docs
-  config.infer_spec_type_from_file_location!
-
-  # config.before(:suite) do
-  #   DatabaseCleaner.strategy = :truncation
-  #   DatabaseCleaner.clean_with(:truncation)
-  # end
-  #
-  # config.around(:each) do |example|
-  #   DatabaseCleaner.cleaning do
-  #     example.run
-  #   end
-  # end
 end
+
+Capybara.default_host = 'http://example.org'
+
+OmniAuth.config.test_mode = true
+OmniAuth.config.add_mock(:google_oauth2, {
+  :uid => '12345',
+  :name => 'John Snow'
+})

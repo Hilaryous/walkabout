@@ -16,7 +16,7 @@
           <li class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             <figure  class="sight-card">
               <a href="#">
-                <%= image_tag sight.image.url(:thumb) %>
+                <%= image_tag sight.image.url(:thumb) , id: "sight-image"%>
                 <figcaption>
                   <p class="sight-name"><%= sight.name %></p>
                   <p class="sight-kind"><%= sight.kind %></p>

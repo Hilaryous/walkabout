@@ -9,4 +9,12 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def total_locations
+    walks.inject(0) { |sum, walk| sum += walk.locations.count }
+  end
+
+  def total_distance
+    walks.inject(0) { |sum, walk| sum += walk.distance }
+  end
 end
