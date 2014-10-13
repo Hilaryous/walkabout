@@ -92,7 +92,7 @@ describe 'displaying a walk' do
 
       within ("#leg-1") do
         within ("#step-1") do
-          expect(first(".text").text).to include("right onto 15th")
+          expect(first(".text").text).to include("right onto 18th")
         end
       end
     end

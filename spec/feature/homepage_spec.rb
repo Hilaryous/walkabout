@@ -25,7 +25,7 @@ describe 'Visiting the homepage' do
 	end
 
 	it "should have a link to about us" do
-		expect(page).to have_link("About Us")
+		expect(page).to have_link("About Me")
 	end
 
 	it 'should have a link to the source code' do

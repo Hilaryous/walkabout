@@ -13,8 +13,7 @@ class WalksController < ApplicationController
       if current_user
         @walk.update(user_id: current_user.id)
       end
-      process_and_create_start_location
-      @walk.assign_locations
+      process_and_create_start_location_and_walk_locations
       redirect_to walk_path(@walk)
     else
       render :new
@@ -52,7 +51,11 @@ class WalksController < ApplicationController
     @lng = lookup_ip_location.longitude
   end
 
-  def process_and_create_start_location
+  def create_start_location(type)
+    instance_variable_set("@#{type}_location",Kernel.const_get("#{type.capitalize}Location").create(latitude: @lat, longitude: @lng, walk_id: @walk.id))
+  end
+
+  def process_and_create_start_location_and_walk_locations
     types = ["start_location", "finish_location"]
     types.each_with_index do |type, i|
       if process_position(type) == nil
@@ -61,9 +64,6 @@ class WalksController < ApplicationController
       location_type = type.partition("_")[0]
       create_start_location(location_type)
     end
-  end
-
-  def create_start_location(type)
-    instance_variable_set("@#{type}_location",Kernel.const_get("#{type.capitalize}Location").create(latitude: @lat, longitude: @lng, walk_id: @walk.id))
+    @walk.assign_locations
   end
 end

@@ -31,7 +31,6 @@ class Location < ActiveRecord::Base
   end
 
   def locations
-    # need to elinimate allll locations that currently belong to the walk
     current_walk_locations = StartLocation.last.walk.locations.map do |location|
       location.id
     end
