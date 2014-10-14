@@ -1,0 +1,33 @@
+FEATURE,LOCATION,LOC_CODE,FOUNTAIN_NAME,NOTES,GLOBALID,ASSET_CLASS,CLASS_CATEGORY,GIS_ASSET_ID,INFOR_ASSET_ID
+Interactive Fountain,Sloan's Lake Park,019,Pelican,Hand Pump - small water feature,{00000000-0000-0000-0000-000000000000},,,,
+Decorative Fountain,Cheesman Park,312,Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25016,109838
+Decorative Fountain,Babi Yar Park,601,Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25022,109849
+Interactive Fountain,Bear Creek Park,139,Water Feature,Playground Area - small interactive water feature,{00000000-0000-0000-0000-000000000000},FOUNT,FT-SMALL,25028,112705
+Decorative Fountain,Centennial Park,901,Fountain,,{00000000-0000-0000-0000-000000000000},,,,
+Decorative Fountain,Skyline Park,332,Skyline Terrace Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25020,109844
+Decorative Fountain,Skyline Park,332,Skyline Block Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25018,109852
+Decorative Fountain,Cheesman Park,312,Fountain,,{00000000-0000-0000-0000-000000000000},,,,
+Interactive Fountain,Central Park,561,Central Park Interactive Fountain,Large interactive water feature,{00000000-0000-0000-0000-000000000000},FOUNT,FT-INTER,25006,109859
+Decorative Fountain,Centennial Park,901,Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25015,109856
+Decorative Fountain,Benedict Fountain Park,310,Benedict Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25000,109837
+Decorative Fountain,Centennial Park,901,Fountain,,{00000000-0000-0000-0000-000000000000},,,,
+Decorative Fountain,Cheesman Park,312,Fountain,,{00000000-0000-0000-0000-000000000000},,,,
+Decorative Fountain,Centennial Park,901,Fountain,,{00000000-0000-0000-0000-000000000000},,,,
+Interactive Fountain,Ruby Hill Park,827,Mister,Playground Area - small water feature,{00000000-0000-0000-0000-000000000000},FOUNT,FT-SMALL,25026,112703
+Decorative Fountain,Cherry Creek Park,330,Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25011,109839
+Interactive Fountain,Greenway Park,556,Bubbler,Playground Area - small interactive water feature,{00000000-0000-0000-0000-000000000000},FOUNT,FT-SMALL,25025,112702
+Decorative Fountain,Hungarian Freedom Park,302,Hungarian Freedom Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25013,109842
+Decorative Fountain,City Park,201,Electric Prismatic Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25021,109846
+Decorative Fountain,Civic Center Park,233,Pioneers Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25014,109851
+Decorative Fountain,City Park,201,Children's Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25008,109848
+Interactive Fountain,Central Park,561,Misting Trees,Playground Area - small interactive water feature,{00000000-0000-0000-0000-000000000000},FOUNT,FT-SMALL,25027,112704
+Decorative Fountain,19th & Welton,,Beaumont Fountain,Not on park property,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25024,
+Decorative Fountain,Civic Center Park,213,Seal Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25023,109850
+Decorative Fountain,Oneida Street and Richthofen Pkwy denver co,467,Richthofen Memorial Fountain,Not functional,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25019,109843
+Decorative Fountain,City Park,201,Thatcher Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25005,109847
+Decorative Fountain,Centennial Park,901,Fountain,,{00000000-0000-0000-0000-000000000000},,,,
+Decorative Fountain,Cherry Creek Park,330,Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25009,109853
+Interactive Fountain,City Park,201,Gates Interactive Fountain,Large interactive water feature,{00000000-0000-0000-0000-000000000000},FOUNT,FT-INTER,25004,109845
+Decorative Fountain,City Park Esplanade,202,Sullivan Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-DECO,25003,109840
+Interactive Fountain,Parkfield,516,Interactive Fountain,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-INTER,25007,109860
+Interactive Fountain,Cuatro Vientos,825,,,{00000000-0000-0000-0000-000000000000},FOUNT,FT-INTER,25029,

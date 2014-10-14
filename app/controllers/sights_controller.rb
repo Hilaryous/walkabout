@@ -13,7 +13,6 @@ class SightsController < ApplicationController
   end
 
   def update
-    binding.pry
     @sight = Sight.find(params[:id])
     if @sight.update(sight_params)
       redirect_to sights_path
