@@ -31,6 +31,26 @@ describe 'sight' do
     it 'should have all of the kinds of sights' do
       expect(page).to have_content('Park')
     end
+
+    it 'does not have a link to submit a photo' do
+      expect(page).to_not have_link('Submit a Photo')
+    end
+
+    context 'user is signed in' do
+      before(:each) do
+        login_with_oauth
+        visit sights_path
+      end
+
+      it 'has a button to submit a photo for a location' do
+        expect(page).to have_link('Submit a Photo')
+        click_link('Submit a Photo')
+        expect(page).to have_content "Upload a Photo"
+        expect(page).to have_button "Update Sight"
+        click_button('Update Sight')
+        expect(page).to have_content "Types"
+      end
+    end
   end
 
   context 'show' do

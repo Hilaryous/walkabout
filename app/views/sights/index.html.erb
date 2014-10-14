@@ -2,31 +2,48 @@
   <div class="row">
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
       <h4 class="title">Types</h4>
-      <ul class="types">
-        <%@sight_kinds.each do |kind| %>
-          <li>
-            <%= kind %>
+      <ul class="types nav nav-pills nav-stacked" role="tablist">
+        <% @sight_kinds.each_with_index do |kind, i| %>
+          <li class="<%= i==0 ? ' active' : '' %>">
+            <a href="#<%= kind.squish.downcase.tr(" ","_") %>" role="tab" data-toggle="tab" class="tab-control"><%= kind %></a>
           </li>
         <% end %>
       </ul>
     </div>
-    <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-      <ul class="row block-grid">
-        <% @sights.each do |sight| %>
-          <li class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <figure  class="sight-card">
-              <a href="#">
-                <%= image_tag sight.image.url(:thumb) , id: "sight-image"%>
-                <figcaption>
-                  <p class="sight-name"><%= sight.name %></p>
-                  <p class="sight-kind"><%= sight.kind %></p>
-                  <p class="sight-location"><span class="glyphicon glyphicon-map-marker"></span><%= sight.location.address %></p>
-                </figcaption>
-              </a>
-            </figure>
-          </li>
-        <% end %>
-      </ul>
+
+    <div class="tab-content">
+      <% @sight_kinds.each_with_index do |kind, i| %>
+        <div class="tab-panel <%= i==0 ? ' active' : '' %>" id="<%= kind.squish.downcase.tr(" ","_") %>">
+          <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+            <ul class="row block-grid">
+              <%= render partial: 'layouts/sight_box', collection: @sights_by_kind[kind], as: :sight %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
+  <script>
+    $('.nav-pills').each(function(){
+      var $this  = $(this);
+      var $tab   = $this.find('li.active');
+      var $link  = $tab.find("a");
+      var $panel = $($link.attr("href"));
+
+
+      $this.on("click", ".tab-control", function(e) {
+        e.preventDefault();
+        var $link = $(this);
+        var id    = this.hash;
+
+        if (id && !$link.is(".active")){
+          $panel.removeClass('active');
+          $tab.removeClass('active');
+
+          $panel = $(id).addClass('active');
+          $tab   = $link.parent().addClass('active');
+        }
+      });
+    });
+  </script>
 </div>

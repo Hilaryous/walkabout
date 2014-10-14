@@ -5,6 +5,10 @@ class Sight < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def self.sight_kinds
-    all.map{ |sight| sight.kind }.uniq
+    all.where.not(kind: nil).pluck(:kind).uniq
+  end
+
+  def self.sights_by_kind
+    all.group_by(&:kind)
   end
 end
