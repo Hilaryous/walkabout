@@ -1,0 +1,15 @@
+<li class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+  <figure  class="sight-card">
+    <a href="#">
+      <%= image_tag sight.image.url(:medium) , id: "sight-image"%>
+      <figcaption>
+        <p class="sight-name"><%= sight.name %></p>
+        <p class="sight-kind"><%= sight.kind %></p>
+        <p class="sight-location"><span class="glyphicon glyphicon-map-marker"></span><%= sight.location.address %></p>
+        <% if current_user %>
+          <%= link_to "Submit a Photo", edit_sight_path(sight), class: "submit-photo-button btn btn-default btn-small" %>
+        <% end %>
+      </figcaption>
+    </a>
+  </figure>
+</li>

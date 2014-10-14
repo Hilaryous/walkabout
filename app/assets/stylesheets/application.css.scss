@@ -150,6 +150,14 @@ figure{
   margin: 0px;
 }
 
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
 .sight-card>a{
   background: #f2f2f2;
   transition: box-shadow 100ms linear, top 100ms linear;
