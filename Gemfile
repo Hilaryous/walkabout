@@ -13,16 +13,20 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'pg'
 gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
-gem 'postgres-copy'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem "figaro"
 gem 'google-api-client'
 gem 'omniauth-google-oauth2'
 gem "paperclip", "~> 4.2"
+gem 'resque'
+gem 'aws-sdk'
+gem 's3_direct_upload'
 
 group :production do
   gem "skylight"
+  gem 'execjs'
+  gem 'therubyracer'
 end
 
 group :development do

@@ -13,6 +13,7 @@ class SightsController < ApplicationController
   end
 
   def update
+    binding.pry
     @sight = Sight.find(params[:id])
     if @sight.update(sight_params)
       redirect_to sights_path
@@ -24,6 +25,6 @@ class SightsController < ApplicationController
   private
 
   def sight_params
-    params.require(:sight).permit(:image)
+    params.require(:sight).permit(:medium)
   end
 end

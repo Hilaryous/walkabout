@@ -1,3 +1,5 @@
+require 'resque/server'
+
 Rails.application.routes.draw do
   root "static_pages#home"
   resources :sights
@@ -13,4 +15,6 @@ Rails.application.routes.draw do
       resources :walks
     end
   end
+  mount Resque::Server.new, at: "/resque"
+
 end

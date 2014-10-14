@@ -4,6 +4,7 @@ class CreateSightsTable < ActiveRecord::Migration
       t.string :name
       t.string :kind
       t.string :established_date
+      t.string :direct_upload_url
     end
   end
 end

@@ -17,10 +17,36 @@
       </div>
     </div>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="margin-top: 23%;">
-      <%= form_for @sight, url: sight_path(@sight)  do |f| %>
-        <%= f.hidden_field :name %>
-        <%= f.file_field :image, class: "submit-photo-button btn btn-default btn-small" %><br/>
-        <%= f.submit :class => 'btn btn-success' %>
+      <br/>
+      <%= s3_uploader_form(callback_url: sights_url, id: "s3_uploader", acl: "private", callback_param: "direct_upload_url", max_file_size: 40.megabytes) do %>
+        <%= file_field_tag :file, multiple: false, class: "submit-photo-button btn btn-default btn-small"  %>
+      <% end %>
+
+      <div id="uploads_container"></div>
+
+      <script id="template-upload" type="text/x-tmpl">
+        <div id="upload_{%=o.unique_id%}" class="upload">
+          <h5>{%=o.name%}</h5>
+          <div class="progress progress-striped active"><div class="bar" style="width: 0%"></div></div>
+        </div>
+      </script>
+      <br/>
+      <%= form_for @sight, url: sight_path(@sight) do |f| %>
+
+        <% if @sight.errors.any? %>
+        <ul>
+          <% @sight.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+        <% end %>
+            <%= f.hidden_field :name %>
+            <%= f.hidden_field :direct_upload_url %>
+            <%= f.hidden_field :image_file_name %>
+            <%= f.hidden_field :image_file_size %>
+            <%= f.hidden_field :image_content_type %>
+            <%= f.submit 'Upload', class: 'btn btn-success' %>
+        <br/>
       <% end %>
     </div>
   </div>

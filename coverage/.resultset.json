@@ -156,6 +156,27 @@
         1,
         null
       ],
+      "/Users/hildenton/Desktop/walkabout/config/initializers/resque.rb": [
+        1,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
       "/Users/hildenton/Desktop/walkabout/config/initializers/session_store.rb": [
         null,
         null,
@@ -179,6 +200,12 @@
       ],
       "/Users/hildenton/Desktop/walkabout/config/routes.rb": [
         1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
         1,
         1,
         1,
@@ -186,12 +213,10 @@
         1,
         1,
         1,
-        null,
-        1,
-        1,
-        1,
         1,
         null,
+        null,
+        1,
         null,
         null
       ],
@@ -259,7 +284,6 @@
         1,
         1,
         1,
-        null,
         1,
         15,
         null,
@@ -513,6 +537,6 @@
         null
       ]
     },
-    "timestamp": 1413236793
+    "timestamp": 1413299733
   }
 }
