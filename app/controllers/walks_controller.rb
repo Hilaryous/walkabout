@@ -43,7 +43,11 @@ class WalksController < ApplicationController
   end
 
   def lookup_location
-    @lat_lng = cookies[:lat_lng].split("|")
+    if Rails.env.test?
+      @lat_lng = "39.740199|-104.984426".split("|")
+    else
+      @lat_lng = cookies[:lat_lng].split("|")
+    end
   end
 
   def process_ip(ip_location)
