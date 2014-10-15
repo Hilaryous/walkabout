@@ -1,4 +1,3 @@
-
 var do_on_load = function() {
   $('#s3_uploader').S3Uploader(
     {
