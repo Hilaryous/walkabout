@@ -5,7 +5,7 @@ development:
   pool: 5
   host: localhost
   username: hildenton
-  password: J1mdenton32686
+  password: <%= ENV['PASSWORD'] %>
 
 test:
   adapter: postgresql
@@ -14,7 +14,7 @@ test:
   pool: 5
   host: localhost
   username: hildenton
-  password: J1mdenton32686
+  password: <%= ENV['PASSWORD'] %>
 
 production:
   adapter: postgresql
@@ -23,5 +23,4 @@ production:
   pool: 5
   host: localhost
   username: hildenton
-  password: J1mdenton32686
-
+  password: <%= ENV['PASSWORD'] %>
