@@ -1,4 +1,5 @@
 var do_on_load = function() {
+  debugger;
   $('#s3_uploader').S3Uploader(
     {
       remove_completed_progress_bar: false,
