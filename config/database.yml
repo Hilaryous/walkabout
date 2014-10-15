@@ -1,15 +1,27 @@
 development:
   adapter: postgresql
-  encoding: unicode
+  encoding: UTF-8
   database: walkabout_development
   pool: 5
+  host: localhost
   username: hildenton
-  password:
+  password: J1mdenton32686
 
 test:
   adapter: postgresql
-  encoding: unicode
+  encoding: UTF-8
   database: walkabout_test
   pool: 5
+  host: localhost
   username: hildenton
-  password:
+  password: J1mdenton32686
+
+production:
+  adapter: postgresql
+  encoding: UTF-8
+  database: walkabout
+  pool: 5
+  host: localhost
+  username: hildenton
+  password: J1mdenton32686
+
