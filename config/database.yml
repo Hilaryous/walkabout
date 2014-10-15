@@ -3,9 +3,8 @@ development:
   encoding: UTF-8
   database: walkabout_development
   pool: 5
-  host: localhost
   username: hildenton
-  password: <%= ENV['PASSWORD'] %>
+  password: J1mdenton32686
 
 test:
   adapter: postgresql
@@ -14,13 +13,13 @@ test:
   pool: 5
   host: localhost
   username: hildenton
-  password: <%= ENV['PASSWORD'] %>
+  password: J1mdenton32686
 
 production:
   adapter: postgresql
   encoding: UTF-8
+  host: localhost
   database: walkabout
   pool: 5
-  host: localhost
   username: hildenton
-  password: <%= ENV['PASSWORD'] %>
+  password: J1mdenton32686
