@@ -22,6 +22,8 @@ gem "paperclip", "~> 4.2"
 gem 'resque'
 gem 'aws-sdk'
 gem 's3_direct_upload'
+gem 'pry'
+
 
 group :production do
   gem "skylight"
@@ -42,7 +44,6 @@ group :development, :test do
   gem 'capybara'
   gem 'shoulda-matchers', require: false
   gem 'launchy'
-  gem 'pry'
 end
 
 group :test do

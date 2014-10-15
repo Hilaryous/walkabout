@@ -42,13 +42,13 @@ class WalksController < ApplicationController
     @lng = lng_lat[1]
   end
 
-  def lookup_ip_location
-    current_location
+  def lookup_location
+    @lat_lng = cookies[:lat_lng].split("|")
   end
 
   def process_ip(ip_location)
-    @lat = lookup_ip_location.latitude
-    @lng = lookup_ip_location.longitude
+    @lat = @lat_lng[0]
+    @lng = @lat_lng[1]
   end
 
   def create_start_location(type)
@@ -59,7 +59,7 @@ class WalksController < ApplicationController
     types = ["start_location", "finish_location"]
     types.each_with_index do |type, i|
       if process_position(type) == nil
-        process_ip(lookup_ip_location)
+        process_ip(lookup_location)
       end
       location_type = type.partition("_")[0]
       create_start_location(location_type)
