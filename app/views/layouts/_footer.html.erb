@@ -1,4 +1,8 @@
-<nav class="navbar navbar-fixed-bottom" role="navigation">
+<% if request.path == "/" %>
+  <nav class="navbar navbar-fixed-bottom" role="navigation">
+<% else %>
+  <nav class="navbar navbar-fixed-bottom navbar-not-home" role="navigation">
+<% end %>
   <div class="container-fluid">
     <p class="navbar-text navbar-nav"><a href="#" class="navbar-link">About Me</a></p>
     <p class="navbar-text navbar-nav"><a href="#" class="navbar-link">Contact</a></p>
