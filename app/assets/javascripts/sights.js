@@ -7,16 +7,15 @@ var do_on_load = function() {
     }
   );
   $('#s3_uploader').bind('s3_upload_failed', function(e, content) {
-    return alert(content.filename + ' failed to upload due to a timeout.');
+    // return alert(content.filename + ' failed to upload due to a timeout.');
   });
 
   $('#s3_uploader').bind('s3_upload_complete', function(e, content) {
   	//insert any post progress bar complete stuff here.
-  $('#raffle_direct_upload_url').val(content.url);
-  $('#raffle_attached_file_file_name').val(content.filename);
-  $('#raffle_attached_file_file_path').val(content.filepath);
-  $('#raffle_attached_file_file_size').val(content.filesize);
-  $('#raffle_attached_file_content_type').val(content.filetype);
+  $('#sight_direct_upload_url').val(content.url);
+  $('#sight_image_file_name').val(content.filename);
+  $('#sight_image_file_size').val(content.filesize);
+  $('#sight_image_content_type').val(content.filetype);
 });
 
 };
