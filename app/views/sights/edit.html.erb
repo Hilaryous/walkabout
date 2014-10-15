@@ -31,7 +31,7 @@
         </div>
       </script>
       <br/>
-      <%= form_for @sight, url: sight_path(@sight), method: :put do |f| %>
+      <%= form_for @sight, url: sight_path(@sight), method: :patch do |f| %>
 
         <% if @sight.errors.any? %>
         <ul>
