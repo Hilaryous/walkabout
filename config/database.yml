@@ -1,15 +1,23 @@
 development:
   adapter: postgresql
-  encoding: unicode
+  encoding: UTF-8
   database: walkabout_development
   pool: 5
   username: hildenton
-  password:
+  password: <%= ENV['PASSWORD'] %>
 
 test:
   adapter: postgresql
-  encoding: unicode
+  encoding: UTF-8
   database: walkabout_test
   pool: 5
   username: hildenton
-  password:
+  password: <%= ENV['PASSWORD'] %>
+
+production:
+  adapter: postgresql
+  encoding: UTF-8
+  database: walkabout
+  pool: 5
+  username: hildenton
+  password: <%= ENV['PASSWORD'] %>

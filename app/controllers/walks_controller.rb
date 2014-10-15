@@ -34,9 +34,9 @@ class WalksController < ApplicationController
     params.require(:walk).permit(:name, :distance)
   end
 
-  def process_position(position)
-    position = params[:walk][position.to_sym]
-    processed_position = position.split(",")
+  def process_position(position_type)
+    position_type = params[:walk][position_type.to_sym]
+    processed_position = position_type.split(",")
     lng_lat = processed_position[0..1]
     @lat = lng_lat[0]
     @lng = lng_lat[1]
