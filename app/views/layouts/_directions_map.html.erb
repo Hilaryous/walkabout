@@ -30,66 +30,66 @@
       directionsService.route(request ,function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
           var legs = response.routes[0].legs
-          var legsLength = legs.length;
-          var step_distance = document.getElementById('step_distance');
-          var totalDistance = 0;
-          var totalDuration = 0;
-          var cookie_val = response.routes[0].legs;
-          document.cookie = "route_legs=" + escape(cookie_val)
-          for (var i = 0; i < legsLength; i++) {
-            totalDistance += legs[i].distance.value;
-            totalDuration += legs[i].duration.value;
-            var all_legs = document.getElementById("all-legs");
-            var leg_id = "leg-" + (i)
-            var leg_steps_id = "leg_steps" + (i)
-            var leg_address = legs[i].start_address;
-            var street_address = legs[i].start_address.split("Denver", 1)
-            var city_state_zip = legs[i].start_address.split(",").slice(-3, -1)
 
-            all_legs.innerHTML +=
-            '<div class="leg" id="' + (leg_id) +'">' +
-              '<div class="waypoint">' +
-                '<img width="16" height="16" align="left" src="http://www.iconsdb.com/icons/preview/guacamole-green/circle-outline-xl.png" class="icon"></img>' +
-                '<div class="street-address">' +
-                  (street_address) +
-                '</div>' +
-                '<div class= "city_state_zip">' +
-                  (city_state_zip)+
-                '</div>' +
-              '</div>' +
-              '<div class="steps">' +
-                '<ol id="' + (leg_steps_id) + '">' +
-                '</ol>' +
-              '</div>' +
-            '</div>';
+            var legsLength = legs.length;
+            var step_distance = document.getElementById('step_distance');
+            var totalDistance = 0;
+            var totalDuration = 0;
+            for (var i = 0; i < legsLength; i++) {
+              totalDistance += legs[i].distance.value;
+              totalDuration += legs[i].duration.value;
+              var all_legs = document.getElementById("all-legs");
+              var leg_id = "leg-" + (i)
+              var leg_steps_id = "leg_steps" + (i)
+              var leg_address = legs[i].start_address;
+              var street_address = legs[i].start_address.split("Denver", 1)
+              var city_state_zip = legs[i].start_address.split(",").slice(-3, -1)
 
-            var stepsLength = legs[i].steps.length;
-            for (var j = 0; j < stepsLength; j++) {
-              var leg_steps = document.getElementById(leg_steps_id)
-              var step_id = "step-" + (j)
-              var instructions = legs[i].steps[j].instructions;
-              var stepLength = legs[i].steps[j].distance.text;
-              console.log(stepLength);
-              leg_steps.innerHTML +=
-              '<li class="step" id="' + (step_id) + '">' +
-                '<div class="instructions">' +
-                  '<div class="text">' +
-                    (instructions) +
+              all_legs.innerHTML +=
+              '<div class="leg" id="' + (leg_id) +'">' +
+                '<div class="waypoint">' +
+                  '<img width="16" height="16" align="left" src="http://www.iconsdb.com/icons/preview/guacamole-green/circle-outline-xl.png" class="icon"></img>' +
+                  '<div class="street-address">' +
+                    (street_address) +
+                  '</div>' +
+                  '<div class= "city_state_zip">' +
+                    (city_state_zip)+
                   '</div>' +
                 '</div>' +
-                '<div class="distance">' +
-                  '<div class="line">' +
-                  '</div>' +
-                  '<div class="distance_text">' +
-                    (stepLength) +
-                  '</div>' +
+                '<div class="steps">' +
+                  '<ol id="' + (leg_steps_id) + '">' +
+                  '</ol>' +
                 '</div>' +
-              '</li>';
+              '</div>';
+
+              var stepsLength = legs[i].steps.length;
+              for (var j = 0; j < stepsLength; j++) {
+                var leg_steps = document.getElementById(leg_steps_id)
+                var step_id = "step-" + (j)
+                var instructions = legs[i].steps[j].instructions;
+                var stepLength = legs[i].steps[j].distance.text;
+                console.log(stepLength);
+                leg_steps.innerHTML +=
+                '<li class="step" id="' + (step_id) + '">' +
+                  '<div class="instructions">' +
+                    '<div class="text">' +
+                      (instructions) +
+                    '</div>' +
+                  '</div>' +
+                  '<div class="distance">' +
+                    '<div class="line">' +
+                    '</div>' +
+                    '<div class="distance_text">' +
+                      (stepLength) +
+                    '</div>' +
+                  '</div>' +
+                '</li>';
+              }
             }
-          }
-          step_distance.innerHTML += Math.round( totalDistance * 0.000621371 )+' miles, '
-          step_distance.innerHTML += Math.round( totalDuration / 60 )+' minutes'
-          directionsDisplay.setDirections(response);
+            step_distance.innerHTML += Math.round( totalDistance * 0.000621371 )+' miles, '
+            step_distance.innerHTML += Math.round( totalDuration / 60 )+' minutes'
+            directionsDisplay.setDirections(response);
+          });
         }
       });
     }

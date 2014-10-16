@@ -21,7 +21,7 @@ class WalksController < ApplicationController
   end
 
   def show
-    if current_user
+      if current_user
       @walk = current_user.walks.find(params[:id])
       @sights = @walk.locations_with_sight_names
     else
