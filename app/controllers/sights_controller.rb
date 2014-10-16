@@ -14,8 +14,11 @@ class SightsController < ApplicationController
 
   def update
     @sight = Sight.find(params[:id])
-    if @sight.update(sight_params)
-      redirect_to sights_path
+    if @sight.update(image_file_name: params[:filename],
+                     image_file_size: params[:filesize],
+                     image_content_type: params[:filetype],
+                     image_updated_at: params[:lastModifiedDate])
+      render :js => "window.location.href='"+sights_path+"'"
     else
       render :edit
     end
@@ -23,7 +26,4 @@ class SightsController < ApplicationController
 
   private
 
-  def sight_params
-    params.require(:sight).permit(:medium)
-  end
 end

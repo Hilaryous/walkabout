@@ -4,8 +4,7 @@ class Sight < ActiveRecord::Base
   :styles => { :medium => "300x300#", :thumb => "100x100#" },
   :default_url => "http://blog.wsd.net/mthorngren/files/2011/05/Denver-1.jpg",
   :storage => :s3,
-              :s3_credentials => "#{Rails.root}/config//aws.yml",
-              :path => ":class/:attachment/:id/:style/:filename",
+              :path => "sights/images/:filename",
               :url => ':s3_domain_url'
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
