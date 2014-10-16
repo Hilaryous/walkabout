@@ -18,12 +18,10 @@ class SightsController < ApplicationController
                      image_file_size: params[:filesize],
                      image_content_type: params[:filetype],
                      image_updated_at: params[:lastModifiedDate])
+        UserNotifier.send_upload_photo_confirm(current_user).deliver if current_user
       render :js => "window.location.href='"+sights_path+"'"
     else
       render :edit
     end
   end
-
-  private
-
 end
