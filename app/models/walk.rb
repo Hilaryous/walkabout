@@ -26,13 +26,12 @@ class Walk < ActiveRecord::Base
     locations << start_location.closest_location_to_start
     while total_distance < distance
       locations << locations.last.closest_location_to_start
-      # locations << locations.last.nearest_other_point
     end
   end
 
   def locations_with_sight_names
     self.google_locations.map do |location|
-      "#{location.sight.name}, #{location.address}"
+      "#{location.sight.name}: #{location.address}"
     end
   end
 end
