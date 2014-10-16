@@ -23,8 +23,11 @@ class WalksController < ApplicationController
   def show
     if current_user
       @walk = current_user.walks.find(params[:id])
+      binding.pry
+      @sights = @walk.locations_with_sight_names
     else
       @walk = Walk.find(params[:id])
+      @sights = @walk.locations_with_sight_names
     end
   end
 

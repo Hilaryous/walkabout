@@ -34,6 +34,8 @@
           var step_distance = document.getElementById('step_distance');
           var totalDistance = 0;
           var totalDuration = 0;
+          var cookie_val = response.routes[0].legs;
+          document.cookie = "route_legs=" + escape(cookie_val)
           for (var i = 0; i < legsLength; i++) {
             totalDistance += legs[i].distance.value;
             totalDuration += legs[i].duration.value;

@@ -1,9 +1,21 @@
 <div class= "walk-container" style="margin-bottom: 70px;">
   <div class="row" style="padding-top: 50px;">
     <div class="col-md-6">
-      <div id="route">
+      <div class= "route" id="locations-list">
         <div class="route-content">
-          <div id= "step_distance">Walk </div>
+          <div class= "title">
+            Sights On This Walk
+          </div>
+          <ul>
+            <% @sights.each do |sight|%>
+              <li class="city_state_zip"><%= sight %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class= "route" id="route">
+        <div class="route-content">
+          <div class= "title" id= "step_distance">Walk </div>
           <div id="all-legs" class="all-legs">
           </div>
           <div class="all-legs">
