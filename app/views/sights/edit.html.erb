@@ -1,4 +1,4 @@
-<div class= "new-walk-container">
+<div class= "new-walk-container container-fluid" style="margin-bottom: 70px;">
   <div class="row">
     <div class= "col-md-6 walk-form">
       <h3 style="margin-left: 130px;">Upload a Photo</h3>
@@ -37,24 +37,6 @@
           <div class="progress progress-striped active"><div class="bar" style="width: 0%"></div></div>
         </div>
       </script>
-      <br/>
-      <%= form_for @sight, url: sight_path(@sight), method: :patch do |f| %>
-
-        <% if @sight.errors.any? %>
-        <ul>
-          <% @sight.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-        <% end %>
-            <%= f.hidden_field :name %>
-            <%= f.hidden_field :direct_upload_url %>
-            <%= f.hidden_field :image_file_name %>
-            <%= f.hidden_field :image_file_size %>
-            <%= f.hidden_field :image_content_type %>
-            <%= f.submit 'Upload', class: 'btn btn-success' %>
-        <br/>
-      <% end %>
     </div>
   </div>
 </div>
