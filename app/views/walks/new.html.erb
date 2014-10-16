@@ -15,7 +15,7 @@
         getGeoLocation();
       </script>
     <% end %>
-    <div class= "col-md-3 walk-form">
+    <div class= "col-sm-3 col-xs-9 walk-form">
       <div class="errors">
         <% @walk.errors.each do |attr, msg| %>
           <% if @walk.errors[attr].first == msg %>
@@ -48,7 +48,7 @@
         <%= f.submit "Take A Walk", class: "btn btn-success" %>
       <% end %>
     </div>
-    <div class="col-md-9" style="padding-right: 50px; padding-left: 50px;">
+    <div class="col-sm-9 hidden-xs" style="padding-right: 50px; padding-left: 50px;">
       <%= render 'layouts/new_directions_map' %>
     </div>
   </div>

@@ -25,6 +25,10 @@ body,input,textarea{
 .top-nav{
   margin-left: 138px;
   margin-right: 138px;
+  @media (min-width: 400px) {
+    margin-left: 5px;
+    margin-right: 10px;
+  }
 }
 
 .navbar{
@@ -48,6 +52,15 @@ body,input,textarea{
 
 .navbar-brand{
   color: #116611;
+}
+
+.navbar-text-bottom-left {
+  float: left;
+  margin: 15px;
+}
+
+.navbar-right {
+  float: right;
 }
 
 a:hover, a:focus{
@@ -211,6 +224,9 @@ figure{
     padding: 0 16px;
     display: block;
     margin: 0;
+    @media (min-width: 400px) {
+      margin-top: 15px;
+    }
   }
 
   .sight-location{
@@ -262,6 +278,9 @@ h4.title{
   margin-left: 150px;
   margin-top: 33px;
   z-index: 0;
+  @media (min-width: 950px) {
+    margin-left: 75px;
+  }
 }
 
 #map-box{
