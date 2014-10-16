@@ -46,9 +46,6 @@ describe 'sight' do
         expect(page).to have_link('Submit a Photo')
         click_link('Submit a Photo')
         expect(page).to have_content "Upload a Photo"
-        expect(page).to have_button "Update Sight"
-        click_button('Update Sight')
-        expect(page).to have_content "Types"
       end
     end
   end

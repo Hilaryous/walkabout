@@ -6,7 +6,17 @@
         1,
         null,
         null,
-        1
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
       ],
       "/Users/hildenton/Desktop/walkabout/config/application.rb": [
         1,
@@ -92,7 +102,7 @@
         null,
         null,
         1,
-        null,
+        1,
         null,
         null,
         null,
@@ -155,6 +165,19 @@
         1,
         1,
         null
+      ],
+      "/Users/hildenton/Desktop/walkabout/config/initializers/paperclip.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1
       ],
       "/Users/hildenton/Desktop/walkabout/config/initializers/resque.rb": [
         1,
@@ -233,6 +256,17 @@
         1,
         null
       ],
+      "/Users/hildenton/Desktop/walkabout/app/mailers/user_notifier.rb": [
+        1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
       "/Users/hildenton/Desktop/walkabout/app/models/location.rb": [
         1,
         1,
@@ -291,7 +325,6 @@
         1,
         1,
         1,
-        null,
         null,
         null,
         null,
@@ -422,7 +455,7 @@
         1,
         null,
         1,
-        145,
+        147,
         null,
         1,
         null,
@@ -507,16 +540,14 @@
         1,
         0,
         0,
+        null,
+        null,
+        null,
+        0,
         0,
         null,
         0,
         null,
-        null,
-        null,
-        1,
-        null,
-        1,
-        0,
         null,
         null
       ],
@@ -557,6 +588,6 @@
         null
       ]
     },
-    "timestamp": 1413408054
+    "timestamp": 1413474189
   }
 }
