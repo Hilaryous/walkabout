@@ -1,60 +1,10 @@
-# I1: No Walking Plans, Just Sights
-### Needs: ###
-  * Sights are pulled from CSV to my DB
-  * The Sights can be selected but no walk is generated yet
+#Walkabout
+[![Code Climate](https://codeclimate.com/github/121watts/the_pivot/badges/gpa.svg)](https://codeclimate.com/github/121watts/the_pivot)
 
-### Wants: ###
-  * Display all the sights
-  * Google Maps api stuff is done
 
-### Emergency: ###
-  * Narrow the Possible Landmarks
 
-# I2: Walking Plans from One Spot, One Distance
-### Needs: ###
-  * OAuth
-  * Google Maps api stuff is done
-  * Sights are selected
-  * Generate a walk
-  * Display the walk to the user
+Walkabout utilizes open source data from the denver area detailing historical locations, public works of art, parks and park fountains. A user create a walk with a distance of their choosing, then a walk with directions is generated with eight of the previously mentioned locations on it. 
 
-### Wants: ###
-  * Mobile/Web
+This app utilized the google directions javascript v3 api and the geocoder gem for both geocoding and reverse geocoding. Other things to look for are high test coverage, single table inheretance, and direct upload to s3 to make uploading images faster. Also worth noting the app was deployed on a vps. 
 
-### Emergency: ###
-  * User cannot sign in, all users are guests
-
-# I3: Walking Plans from One Spot
-### Needs: ###
-  * User can pick a distance
-  * Sights are selected
-  * Generate a walk
-  * Display the walk to the user
-
-### Wants: ###
-  * Mobile/Web
-  * Filtering Landmarks
-  * User can upload photos of sights
-
-### Emergency: ###
-  * User can only pick from a certain number of distances
-  * Ignore route optimization
-
-# I4: Walking Plans Complete
-### Needs: ###
-  * User can pick a distance
-  * User can pick a start sight
-  * Sights are selected
-  * Generate a walk
-  * Display the walk to the user
-
-### Wants: ###
-  * Mobile/Web Friendly
-  * User can share their routes
-  * Badges
-
-### Emergency: ###
-  * Routes are not saved for signed-in user
-  * Only generate five static routes from multiple start distances
-
-# I5: Delivery
+[Check it out for yourself](http://www.walkabout.pw/)
