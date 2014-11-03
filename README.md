@@ -1,5 +1,5 @@
 #Walkabout
-[![Code Climate](https://codeclimate.com/github/121watts/the_pivot/badges/gpa.svg)](https://codeclimate.com/github/121watts/the_pivot)
+[![Code Climate](https://codeclimate.com/github/121watts/the_pivot/badges/gpa.svg)](https://codeclimate.com/github/Hilaryous/walkabout)
 
 
 
